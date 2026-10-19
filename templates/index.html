@@ -1,0 +1,322 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Quick Category Pills (Signature Category Bar) -->
+<nav class="quick-pills-bar" aria-label="Quick Category Filters">
+  <div class="pills-scroll-container" id="category-pills">
+    <button class="pill-chip active" type="button" data-category="all">🔥 All Movies</button>
+    <button class="pill-chip" type="button" data-category="dual-audio">🎧 Dual Audio</button>
+    <button class="pill-chip" type="button" data-category="bollywood">🇮🇳 Bollywood</button>
+    <button class="pill-chip" type="button" data-category="hollywood">🎬 Hollywood</button>
+    <button class="pill-chip" type="button" data-category="web-series">📺 Web Series</button>
+    <button class="pill-chip" type="button" data-category="south-dubbed">🌟 South Dubbed</button>
+    <button class="pill-chip" type="button" data-quality="1080p">⚡ 1080p FHD</button>
+    <button class="pill-chip" type="button" data-quality="720p">💎 720p HD</button>
+    <button class="pill-chip" type="button" data-quality="480p">📱 480p SD</button>
+    <button class="pill-chip" type="button" data-category="4k">🚀 4K Ultra HD</button>
+    <button class="pill-chip" type="button" data-genre="Action">⚔️ Action</button>
+    <button class="pill-chip" type="button" data-genre="Comedy">😂 Comedy</button>
+    <button class="pill-chip" type="button" data-genre="Horror">😱 Horror</button>
+    <button class="pill-chip" type="button" data-genre="Sci-Fi">🚀 Sci-Fi</button>
+    <button class="pill-chip" type="button" data-genre="Thriller">🕵️ Thriller</button>
+    <button class="pill-chip" type="button" data-genre="Romance">❤️ Romance</button>
+    <button class="pill-chip" type="button" data-genre="Drama">🎭 Drama</button>
+    <button class="pill-chip" type="button" data-genre="Animation">🎨 Animation</button>
+  </div>
+</nav>
+
+<!-- Trending / Featured Hero Banner (VegaMovies & Movies4u style) -->
+<section class="featured-hero" id="featured-hero" aria-label="Featured Releases">
+  <div class="featured-container" id="featured-slider">
+    <div class="featured-slide skeleton-slide">
+      <div class="slide-backdrop"></div>
+      <div class="slide-content">
+        <span class="slide-tag">⚡ FEATURED SPOTLIGHT</span>
+        <h2 class="slide-title">Loading Featured Movies…</h2>
+        <p class="slide-meta">Please wait while the library syncs</p>
+      </div>
+    </div>
+  </div>
+  <div class="slider-controls">
+    <button class="slider-arrow prev-slide" id="prev-slide" type="button" aria-label="Previous slide">‹</button>
+    <div class="slider-dots" id="slider-dots"></div>
+    <button class="slider-arrow next-slide" id="next-slide" type="button" aria-label="Next slide">›</button>
+  </div>
+</section>
+
+<!-- Main Movie Library Section -->
+<section class="library-section" id="library">
+  <!-- Section Header -->
+  <div class="library-header">
+    <div class="header-titles">
+      <div class="title-with-badge">
+        <span class="dot-indicator"></span>
+        <h1 class="section-title" id="catalog-title">Latest Movie &amp; Series Downloads</h1>
+      </div>
+      <p class="section-subtitle">20 Movies per page • Verified Google Drive, Fast Cloud &amp; High-Speed Links</p>
+    </div>
+    <div class="results-stats">
+      <span class="count-badge" id="results-count-badge">Loading titles…</span>
+    </div>
+  </div>
+
+  <!-- Advanced Filter & Search Toolbar -->
+  <div class="filter-toolbar" id="filter-toolbar">
+    <div class="toolbar-grid">
+      <!-- Keyword Search -->
+      <div class="filter-field search-field">
+        <label for="filter-search-input" class="field-label">Quick Search</label>
+        <div class="input-wrap">
+          <span class="input-icon">🔍</span>
+          <input id="filter-search-input" type="search" placeholder="Type title, actor, director…" autocomplete="off">
+        </div>
+      </div>
+
+      <!-- Category Selector -->
+      <div class="filter-field">
+        <label for="category-select" class="field-label">Category</label>
+        <select id="category-select">
+          <option value="all">All Categories</option>
+          <option value="dual-audio">Dual Audio [Hindi-Eng]</option>
+          <option value="bollywood">Bollywood (Hindi)</option>
+          <option value="hollywood">Hollywood (English)</option>
+          <option value="web-series">Web Series / TV Shows</option>
+          <option value="south-dubbed">South Hindi Dubbed</option>
+          <option value="4k">4K Ultra HD</option>
+        </select>
+      </div>
+
+      <!-- Language Selector -->
+      <div class="filter-field">
+        <label for="language-select" class="field-label">Language / Audio</label>
+        <select id="language-select">
+          <option value="">All Languages</option>
+        </select>
+      </div>
+
+      <!-- Genre Selector -->
+      <div class="filter-field">
+        <label for="genre-select" class="field-label">Genre</label>
+        <select id="genre-select">
+          <option value="">All Genres</option>
+        </select>
+      </div>
+
+      <!-- Quality Selector -->
+      <div class="filter-field">
+        <label for="quality-select" class="field-label">Quality</label>
+        <select id="quality-select">
+          <option value="">All Qualities</option>
+          <option value="480p">480p SD (Mobile)</option>
+          <option value="720p">720p HD</option>
+          <option value="1080p">1080p Full HD</option>
+          <option value="2160p">2160p 4K UHD</option>
+          <option value="hevc">HEVC / 10Bit</option>
+        </select>
+      </div>
+
+      <!-- Release Year Selector -->
+      <div class="filter-field">
+        <label for="year-select" class="field-label">Release Year</label>
+        <select id="year-select">
+          <option value="">All Years</option>
+          <option value="2026">2026</option>
+          <option value="2025">2025</option>
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          <option value="2010s">2010–2019</option>
+          <option value="2000s">2000–2009</option>
+          <option value="1990s">1990–1999</option>
+          <option value="classic">Classics (&lt; 1990)</option>
+        </select>
+      </div>
+
+      <!-- Sort Selector -->
+      <div class="filter-field">
+        <label for="sort-select" class="field-label">Sort By</label>
+        <select id="sort-select">
+          <option value="newest">Recent &amp; Top Rated (Featured)</option>
+          <option value="rating">Top IMDb Rating ★</option>
+          <option value="year">Release Year (Newest)</option>
+          <option value="title">Title (A to Z)</option>
+        </select>
+      </div>
+
+      <!-- Reset Button -->
+      <div class="filter-field button-field">
+        <button class="reset-filters-btn" id="reset-filters-btn" type="button">
+          <span>↻</span> Reset Filters
+        </button>
+      </div>
+    </div>
+
+    <!-- Active Filter Tags Row -->
+    <div class="active-tags-row" id="active-tags-row" hidden>
+      <span class="active-tags-label">Active Filters:</span>
+      <div class="tags-container" id="tags-container"></div>
+      <button class="clear-all-tags-btn" id="clear-all-tags-btn" type="button">Clear All</button>
+    </div>
+  </div>
+
+  <!-- Status / Error Notification -->
+  <div class="status-banner" id="status-banner" role="alert" hidden>
+    <span class="status-icon">⚠️</span>
+    <span class="status-message" id="status-message"></span>
+    <button class="status-retry-btn" id="status-retry-btn" type="button">Retry</button>
+  </div>
+
+  <!-- Movie Cards Grid (Strictly 20 movies per page) -->
+  <div class="movies-grid" id="movies-grid" aria-live="polite">
+    <!-- Rendered by JavaScript -->
+  </div>
+
+  <!-- Empty State -->
+  <div class="empty-state-box" id="empty-state" hidden>
+    <div class="empty-icon-wrap">🎬</div>
+    <h2 class="empty-title">No Movies Found</h2>
+    <p class="empty-desc">We couldn't find any movie matching your current filters or search query.</p>
+    <div class="empty-actions">
+      <button class="btn btn-primary" id="empty-reset-btn" type="button">Reset All Filters</button>
+      <button class="btn btn-secondary" id="empty-browse-btn" type="button">Browse Bollywood Hits</button>
+    </div>
+  </div>
+
+  <!-- Pagination (20 movies in every page) -->
+  <nav class="pagination-bar" id="pagination-bar" aria-label="Page navigation">
+    <div class="pagination-info" id="pagination-info">Page 1 of 843</div>
+    <div class="pagination-links" id="pagination-links"></div>
+    <div class="page-jump-box">
+      <label for="page-jump-input" class="jump-label">Go to:</label>
+      <input id="page-jump-input" type="number" min="1" max="999" placeholder="Page" aria-label="Go to page number">
+      <button id="page-jump-btn" type="button">Go</button>
+    </div>
+  </nav>
+</section>
+
+<!-- Full Movie Details & Download Modal (MediPortal247 Layout) -->
+<dialog class="movie-modal" id="movie-modal" aria-labelledby="modal-movie-title">
+  <div class="modal-backdrop-close" id="modal-backdrop-close"></div>
+  <div class="modal-window">
+    <button class="modal-close-btn" id="modal-close-btn" type="button" aria-label="Close dialog">✕</button>
+    
+    <div class="modal-loading-state" id="modal-loading">
+      <div class="spinner"></div>
+      <p>Loading full movie details &amp; high-speed download links…</p>
+    </div>
+
+    <article class="modal-body" id="modal-body" hidden>
+      <!-- Breadcrumb Navigation -->
+      <nav class="modal-breadcrumb" aria-label="Breadcrumb">
+        <a href="/" id="modal-bc-home">Home</a>
+        <span class="bc-sep">›</span>
+        <span id="modal-bc-category">Movies</span>
+        <span class="bc-sep">›</span>
+        <span class="bc-current" id="modal-bc-title">Title</span>
+      </nav>
+
+      <!-- Movie Header Banner -->
+      <div class="modal-header-banner">
+        <h1 class="modal-title" id="modal-movie-title">Movie Title</h1>
+        <div class="modal-badges" id="modal-header-badges">
+          <span class="badge badge-year" id="modal-badge-year">2025</span>
+          <span class="badge badge-rating" id="modal-badge-rating">★ 7.5</span>
+          <span class="badge badge-quality" id="modal-badge-quality">1080p | 720p | 480p</span>
+          <span class="badge badge-audio" id="modal-badge-audio">Dual Audio</span>
+          <span class="badge badge-format" id="modal-badge-format">WEB-DL</span>
+        </div>
+      </div>
+
+      <!-- Hero Card: Poster + Specs Info Table (VegaMovies Style) -->
+      <div class="modal-specs-grid">
+        <div class="modal-poster-col">
+          <div class="modal-poster-wrap">
+            <img id="modal-poster-img" src="" alt="Movie Poster" loading="eager">
+          </div>
+          <a href="#download-section" class="jump-download-btn">
+            <span>📥 Jump to Download Links</span>
+          </a>
+        </div>
+
+        <div class="modal-info-col">
+          <div class="specs-table-card">
+            <h2 class="card-section-heading">📌 Movie Information &amp; Technical Specs</h2>
+            <dl class="specs-list" id="modal-specs-list">
+              <!-- Dynamically populated with EVERY piece of data -->
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      <!-- Synopsis / Storyline -->
+      <section class="modal-storyline-section">
+        <h2 class="card-section-heading">📖 Storyline &amp; Synopsis</h2>
+        <blockquote class="storyline-quote" id="modal-storyline-text">
+          Movie synopsis will appear here.
+        </blockquote>
+      </section>
+
+      <!-- Official YouTube Trailer -->
+      <section class="modal-trailer-section" id="modal-trailer-container" hidden>
+        <h2 class="card-section-heading">🎬 Official Trailer</h2>
+        <div class="trailer-embed-wrap" id="modal-trailer-embed">
+          <!-- iframe inserted by JS -->
+        </div>
+      </section>
+
+      <!-- Screenshots Gallery Section -->
+      <section class="modal-screenshots-section" id="modal-screenshots-section" hidden>
+        <div class="screenshots-header">
+          <h2 class="card-section-heading">📸 ScreenShots: (Must See Before Downloading)</h2>
+          <span class="screenshots-note">Click any image to enlarge in full-resolution</span>
+        </div>
+        <div class="screenshots-grid" id="modal-screenshots-grid">
+          <!-- Screenshot images inserted by JS -->
+        </div>
+      </section>
+
+      <!-- Signature Download Links Section -->
+      <section class="modal-download-section" id="download-section">
+        <div class="download-banner-header">
+          <span class="dl-icon">📥</span>
+          <div>
+            <h2 class="dl-heading">DOWNLOAD LINKS</h2>
+            <p class="dl-subheading">Fast Google Drive, High Speed Cloud &amp; Mirror Links</p>
+          </div>
+        </div>
+
+        <!-- Download instructions callout -->
+        <div class="download-tips-callout">
+          <div class="tip-icon">💡</div>
+          <div class="tip-text">
+            <strong>How to Download:</strong> Select your desired quality tier below. For fastest speeds with no ads, choose <strong>Google Drive</strong> or <strong>Fast Cloud</strong>. If any link is expired or busy, click <strong>Download Links</strong> for mirror servers. Read our <a href="/how-to-download" style="color:var(--accent-cyan);text-decoration:underline;">How to Download Tutorial</a> for full help.
+          </div>
+        </div>
+
+        <!-- Structured Quality Tiers -->
+        <div class="download-tiers-list" id="modal-download-tiers">
+          <!-- Tiers inserted by JS -->
+        </div>
+
+        <!-- Fallback when no direct download links -->
+        <div class="download-fallback-card" id="modal-download-fallback" hidden>
+          <p>Direct download links are archived on the source server. Visit the original post to download:</p>
+          <a class="source-link-btn" id="modal-source-link" href="#" target="_blank" rel="noopener noreferrer">
+            🌐 Open Original Download Page ↗
+          </a>
+        </div>
+      </section>
+
+      <!-- Related / Recommended Movies -->
+      <section class="modal-related-section" id="modal-related-section">
+        <h2 class="card-section-heading">✨ You May Also Like (Recommended Titles)</h2>
+        <div class="related-movies-grid" id="modal-related-grid">
+          <!-- Related cards -->
+        </div>
+      </section>
+    </article>
+  </div>
+</dialog>
+{% endblock %}

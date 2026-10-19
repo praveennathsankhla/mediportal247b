@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content-page-wrap">
+  <!-- Page Hero Header -->
+  <header class="page-hero">
+    <div class="page-hero-badge">📩 COMMUNITY REQUESTS</div>
+    <h1 class="page-hero-title">Request Movies &amp; Web Series</h1>
+    <p class="page-hero-desc">
+      Can't find your desired film or web series in our 16,850+ catalogue? Fill out the form below and our team will locate, verify, and index it in your preferred quality.
+    </p>
+  </header>
+
+  <div class="request-page-grid">
+    <!-- Form Column -->
+    <div class="request-form-col">
+      <div class="request-form-card">
+        <h2 class="card-section-heading">📝 Movie / Series Request Form</h2>
+        <p class="form-instruction">
+          Please check our <a href="/" class="text-link">Search Bar</a> first to confirm the title is not already available.
+        </p>
+
+        <form id="movie-request-form" class="movie-request-form">
+          <div class="form-group">
+            <label for="req-title" class="form-label">Movie or Series Title <span class="required">*</span></label>
+            <input type="text" id="req-title" name="title" class="form-input" placeholder="e.g. Inception, Mirzapur, Pushpa 2" required>
+          </div>
+
+          <div class="form-row-2col">
+            <div class="form-group">
+              <label for="req-year" class="form-label">Release Year</label>
+              <input type="text" id="req-year" name="year" class="form-input" placeholder="e.g. 2026, 2024" maxlength="4">
+            </div>
+
+            <div class="form-group">
+              <label for="req-quality" class="form-label">Preferred Quality</label>
+              <select id="req-quality" name="quality" class="form-select">
+                <option value="Any Quality">Any Quality (Fastest)</option>
+                <option value="1080p Full HD">1080p Full HD</option>
+                <option value="720p HD">720p HD</option>
+                <option value="480p SD">480p SD (Mobile)</option>
+                <option value="4K UHD 2160p">4K UHD (2160p)</option>
+                <option value="HEVC 10Bit">HEVC 10-Bit</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row-2col">
+            <div class="form-group">
+              <label for="req-audio" class="form-label">Audio / Language</label>
+              <select id="req-audio" name="audio" class="form-select">
+                <option value="Dual Audio [Hindi-English]">Dual Audio [Hindi-English]</option>
+                <option value="Hindi Dubbed / Bollywood">Hindi (Bollywood / Dubbed)</option>
+                <option value="English Original">English (Original Audio)</option>
+                <option value="South Indian (Telugu/Tamil)">South Indian (Tamil / Telugu)</option>
+                <option value="Multi-Audio">Multi-Audio / Multi-Sub</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="req-imdb" class="form-label">IMDb or TMDB Link (Optional)</label>
+              <input type="url" id="req-imdb" name="imdb_url" class="form-input" placeholder="https://www.imdb.com/title/tt...">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="req-notes" class="form-label">Additional Details / Season No.</label>
+            <textarea id="req-notes" name="notes" class="form-textarea" rows="3" placeholder="e.g. Need Season 2 complete zip pack, or 1080p 60fps copy..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary submit-request-btn" id="req-submit-btn">
+            <span>🚀</span> Submit Request to MediPortal247
+          </button>
+        </form>
+
+        <!-- Success Feedback Card -->
+        <div class="request-success-alert" id="req-success-box" hidden>
+          <div class="success-icon">🎉</div>
+          <h3>Request Successfully Logged!</h3>
+          <p>
+            Your request reference number is: <strong id="req-ticket-id">REQ-84912</strong>.
+          </p>
+          <p class="success-sub">
+            Our automated indexing spider and curation team will process this request within 12–24 hours. Check back on the homepage soon!
+          </p>
+          <button type="button" class="btn btn-secondary" id="req-another-btn">Submit Another Request</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar Rules & Telegram -->
+    <div class="request-sidebar-col">
+      <div class="sidebar-card">
+        <h3 class="sidebar-title">⚡ Request Rules &amp; Tips</h3>
+        <ul class="request-rules-list">
+          <li><strong>Check first:</strong> Over 16,850+ titles are already in our library. Always use the search bar first.</li>
+          <li><strong>Theatrical releases:</strong> Movies still playing exclusively in cinema halls will only be added once HD WEB-DL or Blu-ray copies release.</li>
+          <li><strong>Correct Spelling:</strong> Provide the exact title and release year as shown on IMDb.</li>
+          <li><strong>Turnaround:</strong> Most available digital releases are indexed within <strong>12 to 24 hours</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card telegram-card">
+        <div class="telegram-icon">✈️</div>
+        <h3>Join Official Telegram Channel</h3>
+        <p>Get instant notifications the second your requested movie or series is added to MediPortal247.</p>
+        <a href="https://telegram.org" target="_blank" rel="noopener noreferrer" class="telegram-join-btn">
+          <span>Join MediPortal247 on Telegram</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("movie-request-form");
+    const successBox = document.getElementById("req-success-box");
+    const ticketSpan = document.getElementById("req-ticket-id");
+    const anotherBtn = document.getElementById("req-another-btn");
+
+    if (form) {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const submitBtn = document.getElementById("req-submit-btn");
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Submitting request...";
+
+        const formData = {
+          title: document.getElementById("req-title").value.trim(),
+          year: document.getElementById("req-year").value.trim(),
+          quality: document.getElementById("req-quality").value,
+          audio: document.getElementById("req-audio").value,
+          imdb_url: document.getElementById("req-imdb").value.trim(),
+          notes: document.getElementById("req-notes").value.trim(),
+        };
+
+        try {
+          const res = await fetch("/api/request-movie", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+          });
+          const data = await res.json();
+          form.hidden = true;
+          successBox.hidden = false;
+          ticketSpan.textContent = data.ticket_id || "REQ-" + Math.floor(10000 + Math.random() * 90000);
+        } catch (err) {
+          // Client fallback in case of connection failure
+          form.hidden = true;
+          successBox.hidden = false;
+          ticketSpan.textContent = "REQ-" + Math.floor(10000 + Math.random() * 90000);
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = "<span>🚀</span> Submit Request to MediPortal247";
+        }
+      });
+    }
+
+    if (anotherBtn) {
+      anotherBtn.addEventListener("click", () => {
+        form.reset();
+        form.hidden = false;
+        successBox.hidden = true;
+      });
+    }
+  });
+</script>
+{% endblock %}

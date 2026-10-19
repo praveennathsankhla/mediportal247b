@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content-page-wrap">
+  <!-- Page Hero Header -->
+  <header class="page-hero">
+    <div class="page-hero-badge">ℹ️ ABOUT MEDIPORTAL247</div>
+    <h1 class="page-hero-title">Your Ultra-Fast Movie &amp; Series Discovery Engine</h1>
+    <p class="page-hero-desc">
+      Inspired by premier streaming and download portals like BollyFlix, VegaMovies, and Movies4u. Built for cinema enthusiasts seeking verified, high-speed direct downloads without the hassle.
+    </p>
+  </header>
+
+  <!-- Platform Stats Strip -->
+  <div class="stats-strip-grid">
+    <div class="stat-card">
+      <span class="stat-num">16,850+</span>
+      <span class="stat-label">Movies &amp; Series</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num">17,380+</span>
+      <span class="stat-label">Local High-Res Posters</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num">4</span>
+      <span class="stat-label">Quality Tiers (480p to 4K)</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">Verified Fast Cloud Mirrors</span>
+    </div>
+  </div>
+
+  <!-- Main Content Cards -->
+  <div class="content-cards-stack">
+    <!-- Story Card -->
+    <article class="content-card">
+      <div class="card-icon-title">
+        <span class="card-icon">🎬</span>
+        <h2 class="card-title">Our Story &amp; Philosophy</h2>
+      </div>
+      <div class="card-text">
+        <p>
+          <strong>MediPortal247</strong> was conceived with a single, uncompromising vision: to create the fastest, cleanest, and most accessible movie discovery and catalogue index on the web. Finding verified download links for regional cinema, Bollywood blockbusters, Hollywood dual-audio releases, and South-dubbed gems often meant navigating through slow, confusing ad-traps.
+        </p>
+        <p>
+          Taking direct design inspiration from legendary movie hubs like <strong>BollyFlix</strong>, <strong>VegaMovies</strong>, and <strong>Movies4u</strong>, we re-engineered the experience from the ground up: a dark cinematic UI, instant real-time search, zero page clutter, and transparent technical specifications for every film.
+        </p>
+      </div>
+    </article>
+
+    <!-- Key Features Grid -->
+    <article class="content-card">
+      <div class="card-icon-title">
+        <span class="card-icon">⚡</span>
+        <h2 class="card-title">What Makes MediPortal247 Different?</h2>
+      </div>
+      <div class="features-2col-grid">
+        <div class="feature-box">
+          <div class="feature-icon">🚀</div>
+          <div class="feature-details">
+            <h3>Ultra-Fast Google Drive &amp; Cloud Mirrors</h3>
+            <p>Every title provides high-speed Google Drive and multi-cloud mirrors so you can download at maximum bandwidth without speed throttling.</p>
+          </div>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon">🎧</div>
+          <div class="feature-details">
+            <h3>Dual &amp; Multi-Audio Library</h3>
+            <p>Over 8,700+ titles feature Hindi-English dual audio, multi-language South dubbed tracks (Tamil, Telugu, Kannada, Malayalam), and original Dolby 5.1 tracks.</p>
+          </div>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon">💎</div>
+          <div class="feature-details">
+            <h3>Every Quality Tier Supported</h3>
+            <p>From data-friendly 480p SD (300MB) for mobile screens, to 720p HD and 1080p FHD, up to breathtaking 4K UHD 2160p and space-saving 10-Bit HEVC encodes.</p>
+          </div>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon">💬</div>
+          <div class="feature-details">
+            <h3>Pre-Synced ESub &amp; MSub Subtitles</h3>
+            <p>English and Hindi subtitles come embedded in MKV containers with sample screenshots provided so you can verify subtitle and video quality beforehand.</p>
+          </div>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon">🔍</div>
+          <div class="feature-details">
+            <h3>Instant Autocomplete Search</h3>
+            <p>Find any movie by actor, director, genre, or release year in less than 10 milliseconds using our pre-indexed in-memory catalogue.</p>
+          </div>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon">📱</div>
+          <div class="feature-details">
+            <h3>Fully Mobile-Responsive Experience</h3>
+            <p>Engineered for seamless one-handed browsing on smartphones, tablets, and desktop setups with a dedicated mobile slide-out drawer.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Technical Infrastructure Card -->
+    <article class="content-card">
+      <div class="card-icon-title">
+        <span class="card-icon">🛠️</span>
+        <h2 class="card-title">Architecture &amp; Data Pipeline</h2>
+      </div>
+      <div class="card-text">
+        <p>
+          MediPortal247 operates on a high-concurrency Python/Flask backend backed by a multi-tier memory caching system. Rather than burdening visitors with heavy external hotlinking, over <strong>17,380+ high-resolution posters</strong> are stored and served locally with aggressive HTTP caching (<code>max-age=86400</code>).
+        </p>
+        <p>
+          The catalogue regularly syncs with primary archive checkpoints, ensuring all download links, mirrors, and technical metadata remain fresh and accessible around the clock.
+        </p>
+      </div>
+    </article>
+
+    <!-- Safe Browsing & Advisory -->
+    <article class="content-card highlight-card">
+      <div class="card-icon-title">
+        <span class="card-icon">🛡️</span>
+        <h2 class="card-title">Safe Browsing &amp; Recommendations</h2>
+      </div>
+      <div class="card-text">
+        <p>
+          To enjoy seamless playback of dual-audio tracks and MKV subtitle streams, we strongly recommend using <strong>VLC Media Player</strong> or <strong>PotPlayer</strong> on PC, and <strong>VLC for Android</strong> or <strong>MX Player</strong> on mobile devices.
+        </p>
+        <p>
+          Need help navigating cloud link mirrors? Visit our visual <a href="/how-to-download" class="text-link">How to Download Tutorial</a> for step-by-step instructions.
+        </p>
+      </div>
+      <div class="card-actions-row">
+        <a href="/" class="btn btn-primary">🔥 Browse Latest Movies</a>
+        <a href="/how-to-download" class="btn btn-secondary">📖 How to Download Guide</a>
+        <a href="/request-movies" class="btn btn-secondary">📩 Request a Movie</a>
+      </div>
+    </article>
+  </div>
+</div>
+{% endblock %}

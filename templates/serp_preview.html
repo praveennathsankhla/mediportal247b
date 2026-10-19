@@ -1,0 +1,402 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content-page-wrap serp-inspector-page">
+  <!-- Page Hero Header -->
+  <header class="page-hero">
+    <div class="page-hero-badge">🔍 SEO &amp; SERP INSPECTOR</div>
+    <h1 class="page-hero-title">Google SERP Snippet &amp; SEO Preview</h1>
+    <p class="page-hero-desc">
+      Inspect, test, and optimize how MediPortal247 pages and movies appear on Google Search results. Featuring live Desktop and Mobile SERP snippet simulations.
+    </p>
+  </header>
+
+  <!-- Educational Definitions Grid -->
+  <div class="seo-definitions-grid">
+    <div class="definition-card">
+      <div class="def-badge">1. THE TITLE TAG</div>
+      <h3>Title Tag (SEO Title)</h3>
+      <p>
+        The page's primary HTML headline (<code>&lt;title&gt;</code>). It is the most critical on-page ranking and click-through factor.
+      </p>
+      <div class="def-metrics">
+        <span><strong>Ideal Length:</strong> 50–60 characters</span>
+        <span><strong>Pixel Width:</strong> Max ~600px on Desktop</span>
+      </div>
+    </div>
+
+    <div class="definition-card">
+      <div class="def-badge">2. META DESCRIPTION</div>
+      <h3>Meta Description</h3>
+      <p>
+        The concise summary rendered directly underneath the clickable title. It acts as an organic ad pitch that persuades searchers to click your link.
+      </p>
+      <div class="def-metrics">
+        <span><strong>Ideal Length:</strong> 140–160 characters</span>
+        <span><strong>Search Engines:</strong> Google, Bing, Yahoo</span>
+      </div>
+    </div>
+
+    <div class="definition-card highlight-def">
+      <div class="def-badge">3. SERP SNIPPET</div>
+      <h3>SERP Snippet</h3>
+      <p>
+        The overall search result preview, including the favicon, brand name, breadcrumbs, clickable headline, star ratings, date, and description snippet.
+      </p>
+      <div class="def-metrics">
+        <span><strong>Rich Features:</strong> Ratings ★, Sitelinks, Date</span>
+        <span><strong>Schema:</strong> Movie, Breadcrumbs, WebSite</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive SERP Simulator Box -->
+  <div class="serp-simulator-container">
+    <div class="simulator-header">
+      <div class="sim-title-wrap">
+        <h2>Live Google Search Result Preview</h2>
+        <span class="live-pill">● LIVE PREVIEW</span>
+      </div>
+
+      <div class="device-switch-group">
+        <button type="button" class="device-btn active" id="btn-desktop-view">🖥️ Desktop Search</button>
+        <button type="button" class="device-btn" id="btn-mobile-view">📱 Mobile Search</button>
+      </div>
+    </div>
+
+    <!-- Live Preview Card (Google SERP Card) -->
+    <div class="serp-preview-window desktop-mode" id="serp-preview-window">
+      <div class="google-result-card" id="google-card">
+        <!-- Top Breadcrumbs & Favicon -->
+        <div class="google-header-row">
+          <div class="google-favicon">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00e5ff"><path d="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm0 2v2h2V5H4zm16 0h-2v2h2V5zM4 9v2h2V9H4zm16 0h-2v2h2V9zM8 5h8v14H8V5z"/></svg>
+          </div>
+          <div class="google-site-info">
+            <span class="google-site-name">MediPortal247</span>
+            <span class="google-url-path" id="preview-url-display">https://mediportal247.com › movie › with-honors</span>
+          </div>
+          <button type="button" class="google-more-btn" aria-label="Search options">⋮</button>
+        </div>
+
+        <!-- Clickable Title Tag -->
+        <div class="google-title-row">
+          <h3 class="google-title-link" id="preview-title-display">
+            Download With Honors (1994) English Movie 480p | 720p | 1080p WEB-DL ESub — MediPortal247
+          </h3>
+        </div>
+
+        <!-- Rich Snippet: Ratings & Attributes -->
+        <div class="google-rich-row" id="preview-rich-row">
+          <span class="google-stars">★★★★☆</span>
+          <span class="google-rating-text" id="preview-rating-display">Rating: 6.7/10 · 24,190 votes</span>
+          <span class="google-rich-sep">·</span>
+          <span class="google-date-display" id="preview-date-display">Oct 16, 2026</span>
+        </div>
+
+        <!-- Meta Description Snippet -->
+        <div class="google-desc-row">
+          <p class="google-description-text" id="preview-desc-display">
+            Download With Honors (1994) in 480p, 720p, 1080p (480MB - 1.7GB) with English audio and subtitles. Starring Joe Pesci, Brendan Fraser. Fast Google Drive &amp; Cloud download links on MediPortal247.
+          </p>
+        </div>
+
+        <!-- Desktop Sitelinks (Visible on Desktop Mode) -->
+        <div class="google-sitelinks-table" id="preview-sitelinks">
+          <div class="sitelink-item">
+            <a href="#">⚡ Google Drive Download</a>
+            <p>Fastest high-speed mirrors with resume support.</p>
+          </div>
+          <div class="sitelink-item">
+            <a href="#">🎧 Dual Audio Movies</a>
+            <p>Hindi + English dual audio downloads.</p>
+          </div>
+          <div class="sitelink-item">
+            <a href="#">📺 Web Series Complete Packs</a>
+            <p>All seasons in 720p &amp; 1080p zip files.</p>
+          </div>
+          <div class="sitelink-item">
+            <a href="#">📖 How to Download Guide</a>
+            <p>Step-by-step tutorial for beginners.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Custom Editor & Preset Switcher -->
+    <div class="serp-editor-grid">
+      <div class="editor-col">
+        <div class="editor-card">
+          <div class="editor-header">
+            <h3>⚙️ SERP Snippet Customizer</h3>
+            <span class="editor-hint">Edit below to watch snippet update in real time</span>
+          </div>
+
+          <!-- Preset Selector -->
+          <div class="form-group">
+            <label for="serp-preset-select" class="form-label">Load Preset Page Template</label>
+            <select id="serp-preset-select" class="form-select">
+              <option value="movie">🎬 Movie Page: With Honors (1994)</option>
+              <option value="home">🏠 Home Page: MediPortal247 Main Hub</option>
+              <option value="how_to_download">📖 How to Download: Step-by-Step Tutorial</option>
+              <option value="request_movies">📩 Community Requests: Request a Movie</option>
+              <option value="about">ℹ️ About Us: Platform Architecture</option>
+              <option value="dmca">⚖️ DMCA Disclaimer: Copyright Policy</option>
+            </select>
+          </div>
+
+          <!-- Title Tag Input -->
+          <div class="form-group">
+            <div class="label-with-count">
+              <label for="edit-title" class="form-label">Title Tag (SEO Title)</label>
+              <span class="char-count" id="title-char-count">65 / 60 chars</span>
+            </div>
+            <input type="text" id="edit-title" class="form-input" value="Download With Honors (1994) English Movie 480p | 720p | 1080p WEB-DL ESub — MediPortal247">
+            <div class="length-meter-bar">
+              <div class="meter-fill" id="title-meter" style="width: 90%;"></div>
+            </div>
+          </div>
+
+          <!-- Meta Description Input -->
+          <div class="form-group">
+            <div class="label-with-count">
+              <label for="edit-desc" class="form-label">Meta Description (Short Summary)</label>
+              <span class="char-count" id="desc-char-count">152 / 160 chars</span>
+            </div>
+            <textarea id="edit-desc" class="form-textarea" rows="3">Download With Honors (1994) in 480p, 720p, 1080p (480MB - 1.7GB) with English audio and subtitles. Starring Joe Pesci, Brendan Fraser. Fast Google Drive &amp; Cloud download links on MediPortal247.</textarea>
+            <div class="length-meter-bar">
+              <div class="meter-fill" id="desc-meter" style="width: 85%;"></div>
+            </div>
+          </div>
+
+          <!-- URL / Path Input -->
+          <div class="form-row-2col">
+            <div class="form-group">
+              <label for="edit-url" class="form-label">Breadcrumb URL Path</label>
+              <input type="text" id="edit-url" class="form-input" value="https://mediportal247.com › movie › with-honors">
+            </div>
+
+            <div class="form-group">
+              <label for="edit-rating" class="form-label">IMDb Star Rating Snippet</label>
+              <input type="text" id="edit-rating" class="form-input" value="6.7">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Generated Code Inspector Column -->
+      <div class="code-col">
+        <div class="editor-card">
+          <div class="editor-header">
+            <h3>💻 Generated HTML &amp; JSON-LD Code</h3>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-copy-code">📋 Copy Code</button>
+          </div>
+          <p class="code-desc">Exact meta tags and Schema.org structured data embedded in the page's <code>&lt;head&gt;</code> for Google Search:</p>
+
+          <pre class="code-output-box"><code id="code-snippet-output">
+&lt;!-- Primary SEO Meta Tags --&gt;
+&lt;title&gt;Download With Honors (1994) English Movie 480p | 720p | 1080p WEB-DL ESub — MediPortal247&lt;/title&gt;
+&lt;meta name="description" content="Download With Honors (1994) in 480p, 720p, 1080p (480MB - 1.7GB) with English audio and subtitles. Fast Google Drive links."&gt;
+&lt;link rel="canonical" href="https://mediportal247.com/movie/with-honors"&gt;
+
+&lt;!-- Google SERP Rich Snippet Schema.org JSON-LD --&gt;
+&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Movie",
+  "name": "With Honors",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "6.7",
+    "bestRating": "10",
+    "ratingCount": "24190"
+  }
+}
+&lt;/script&gt;
+          </code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const editTitle = document.getElementById("edit-title");
+    const editDesc = document.getElementById("edit-desc");
+    const editUrl = document.getElementById("edit-url");
+    const editRating = document.getElementById("edit-rating");
+
+    const prevTitle = document.getElementById("preview-title-display");
+    const prevDesc = document.getElementById("preview-desc-display");
+    const prevUrl = document.getElementById("preview-url-display");
+    const prevRating = document.getElementById("preview-rating-display");
+    const prevRichRow = document.getElementById("preview-rich-row");
+
+    const titleChar = document.getElementById("title-char-count");
+    const descChar = document.getElementById("desc-char-count");
+    const titleMeter = document.getElementById("title-meter");
+    const descMeter = document.getElementById("desc-meter");
+    const codeOutput = document.getElementById("code-snippet-output");
+
+    const btnDesktop = document.getElementById("btn-desktop-view");
+    const btnMobile = document.getElementById("btn-mobile-view");
+    const previewWindow = document.getElementById("serp-preview-window");
+    const presetSelect = document.getElementById("serp-preset-select");
+    const copyCodeBtn = document.getElementById("btn-copy-code");
+
+    const presets = {
+      movie: {
+        title: "Download With Honors (1994) English Movie 480p | 720p | 1080p WEB-DL ESub — MediPortal247",
+        desc: "Download With Honors (1994) in 480p, 720p, 1080p (480MB - 1.7GB) with English audio and subtitles. Starring Joe Pesci, Brendan Fraser. Fast Google Drive & Cloud download links on MediPortal247.",
+        url: "https://mediportal247.com › movie › with-honors-1994",
+        rating: "6.7",
+        type: "Movie",
+      },
+      home: {
+        title: "MediPortal247 — Download Bollywood, Hollywood & Dual Audio Movies 480p, 720p, 1080p, 4K",
+        desc: "Download latest Bollywood, Hollywood, Dual Audio Movies and Web Series in 480p, 720p, 1080p and 4K Ultra HD. Fast Google Drive, Cloud Links with Hindi Dubbed & Subtitles.",
+        url: "https://mediportal247.com",
+        rating: "",
+        type: "WebSite",
+      },
+      how_to_download: {
+        title: "How to Download Movies from MediPortal247 — Step-by-Step Guide",
+        desc: "Complete tutorial on how to download from Google Drive, bypass cloud links, extract multipart ZIP files, switch dual audio in VLC/MX Player, and add subtitles.",
+        url: "https://mediportal247.com › how-to-download",
+        rating: "4.9",
+        type: "HowTo",
+      },
+      request_movies: {
+        title: "Request Movies & Web Series — MediPortal247 Community",
+        desc: "Submit requests for missing Bollywood, Hollywood, South Dubbed movies or Web Series in 480p, 720p, 1080p, and 4K UHD. Get uploaded within 24 hours.",
+        url: "https://mediportal247.com › request-movies",
+        rating: "",
+        type: "WebPage",
+      },
+      about: {
+        title: "About Us — MediPortal247 | Movie & Web Series Search Engine",
+        desc: "Learn about MediPortal247, the premier high-speed catalogue indexing engine for Bollywood, Hollywood, Dual Audio movies and Web Series with Google Drive links.",
+        url: "https://mediportal247.com › about",
+        rating: "",
+        type: "AboutPage",
+      },
+      dmca: {
+        title: "DMCA Copyright Policy & Disclaimer — MediPortal247",
+        desc: "Official DMCA compliance and copyright infringement notification guidelines for MediPortal247. Fast 24-48 hour response for content copyright owners.",
+        url: "https://mediportal247.com › dmca",
+        rating: "",
+        type: "WebPage",
+      },
+    };
+
+    function updatePreview() {
+      const t = editTitle.value.trim();
+      const d = editDesc.value.trim();
+      const u = editUrl.value.trim();
+      const r = editRating.value.trim();
+
+      prevTitle.textContent = t || "Untitled Page — MediPortal247";
+      prevDesc.textContent = d || "No description provided.";
+      prevUrl.textContent = u || "https://mediportal247.com";
+
+      if (r) {
+        prevRichRow.hidden = false;
+        prevRating.textContent = `Rating: ${r}/10 · 24,190 votes`;
+      } else {
+        prevRichRow.hidden = true;
+      }
+
+      // Title Char Count & Meter
+      const tLen = t.length;
+      titleChar.textContent = `${tLen} / 60 chars`;
+      titleMeter.style.width = Math.min(100, (tLen / 60) * 100) + "%";
+      titleMeter.style.background = tLen > 65 ? "#ef4444" : tLen < 30 ? "#f59e0b" : "#10b981";
+
+      // Desc Char Count & Meter
+      const dLen = d.length;
+      descChar.textContent = `${dLen} / 160 chars`;
+      descMeter.style.width = Math.min(100, (dLen / 160) * 100) + "%";
+      descMeter.style.background = dLen > 160 ? "#ef4444" : dLen < 80 ? "#f59e0b" : "#10b981";
+
+      // Update Code Box
+      const presetKey = presetSelect.value;
+      const type = presets[presetKey] ? presets[presetKey].type : "WebPage";
+
+      const code = `<!-- Primary SEO Meta Tags -->
+<title>${escapeXml(t)}</title>
+<meta name="title" content="${escapeXml(t)}">
+<meta name="description" content="${escapeXml(d)}">
+<link rel="canonical" href="${escapeXml(u.replace(/ › /g, "/"))}">
+
+<!-- Open Graph / Facebook / Twitter -->
+<meta property="og:title" content="${escapeXml(t)}">
+<meta property="og:description" content="${escapeXml(d)}">
+<meta property="og:url" content="${escapeXml(u.replace(/ › /g, "/"))}">
+
+<!-- Schema.org Google SERP Rich Snippet -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "${type}",
+  "name": "${escapeXml(t)}",
+  "description": "${escapeXml(d)}"${r ? `,\n  "aggregateRating": {\n    "@type": "AggregateRating",\n    "ratingValue": "${r}",\n    "bestRating": "10",\n    "ratingCount": "24190"\n  }` : ""}
+}
+<\/script>`;
+
+      codeOutput.textContent = code;
+    }
+
+    function escapeXml(s) {
+      return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
+    // Event listeners
+    editTitle.addEventListener("input", updatePreview);
+    editDesc.addEventListener("input", updatePreview);
+    editUrl.addEventListener("input", updatePreview);
+    editRating.addEventListener("input", updatePreview);
+
+    presetSelect.addEventListener("change", () => {
+      const p = presets[presetSelect.value];
+      if (p) {
+        editTitle.value = p.title;
+        editDesc.value = p.desc;
+        editUrl.value = p.url;
+        editRating.value = p.rating;
+        updatePreview();
+      }
+    });
+
+    // View toggles
+    btnDesktop.addEventListener("click", () => {
+      btnDesktop.classList.add("active");
+      btnMobile.classList.remove("active");
+      previewWindow.classList.add("desktop-mode");
+      previewWindow.classList.remove("mobile-mode");
+    });
+
+    btnMobile.addEventListener("click", () => {
+      btnMobile.classList.add("active");
+      btnDesktop.classList.remove("active");
+      previewWindow.classList.add("mobile-mode");
+      previewWindow.classList.remove("desktop-mode");
+    });
+
+    // Copy code button
+    copyCodeBtn.addEventListener("click", () => {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(codeOutput.textContent).then(() => {
+          copyCodeBtn.textContent = "Copied! ✓";
+          setTimeout(() => (copyCodeBtn.textContent = "📋 Copy Code"), 2500);
+        });
+      }
+    });
+
+    // Initial run
+    updatePreview();
+  });
+</script>
+{% endblock %}

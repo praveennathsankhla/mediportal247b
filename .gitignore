@@ -1,0 +1,22 @@
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Python cache & compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and runtime locks
+*.log
+data/scraper.lock
+
+# Optional: Large local poster cache (1GB - 17,384 images; app falls back to online image URLs)
+data/thumbnails/
