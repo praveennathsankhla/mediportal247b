@@ -1153,6 +1153,58 @@ def featured_api():
     return jsonify({"featured": _catalog_featured})
 
 
+def _levenshtein_distance(s1, s2):
+    if len(s1) < len(s2):
+        return _levenshtein_distance(s2, s1)
+    if not s2:
+        return len(s1)
+    prev = range(len(s2) + 1)
+    for i, c1 in enumerate(s1):
+        curr = [i + 1]
+        for j, c2 in enumerate(s2):
+            curr.append(min(prev[j + 1] + 1, curr[j] + 1, prev[j] + (c1 != c2)))
+        prev = curr
+    return prev[-1]
+
+
+def _score_fuzzy_match(query_words, card, blob):
+    full_text = f"{card.get('full_name', '')} {card.get('title', '')}".casefold()
+    title_words = [w for w in re.split(r"[^a-z0-9]+", full_text) if w]
+    blob_words = [w for w in re.split(r"[^a-z0-9]+", f"{full_text} {blob}".casefold()) if w]
+
+    total = 0
+    for qw in query_words:
+        q_len = len(qw)
+        best = 0
+        for tw in title_words:
+            if tw == qw:
+                best = max(best, 100)
+                break
+            elif tw.startswith(qw):
+                best = max(best, 85)
+            elif qw in tw:
+                best = max(best, 75)
+        if best < 100:
+            max_d = 2 if q_len >= 5 else (1 if q_len >= 3 else 0)
+            for tw in title_words:
+                if abs(len(tw) - q_len) > max_d:
+                    continue
+                d = _levenshtein_distance(qw, tw)
+                if d <= max_d:
+                    s = 70 - d * 20
+                    if s > best:
+                        best = s
+        if best == 0:
+            for bw in blob_words:
+                if bw == qw or qw in bw:
+                    best = 40
+                    break
+        if best == 0:
+            return 0
+        total += best
+    return total
+
+
 @app.get("/api/suggest")
 def suggest_api():
     try:
@@ -1164,20 +1216,25 @@ def suggest_api():
     if not query or len(query) < 2:
         return jsonify({"results": []})
 
-    matches = []
+    q_words = [w for w in re.split(r"[^a-z0-9]+", query) if w]
+    scored = []
     for blob, movie in _catalog_search_blobs:
-        if query in blob:
-            card = movie["__card"]
-            matches.append({
-                "id": card["id"],
-                "title": card["title"],
-                "year": card["year"],
-                "rating": card["rating"],
-                "quality": card["quality"],
-                "thumbnail": card["thumbnail"],
-            })
-            if len(matches) >= 6:
-                break
+        card = movie["__card"]
+        score = _score_fuzzy_match(q_words, card, blob)
+        if score > 0:
+            scored.append((score, card))
+
+    scored.sort(key=lambda x: -x[0])
+    matches = []
+    for score, card in scored[:8]:
+        matches.append({
+            "id": card["id"],
+            "title": card["title"],
+            "year": card["year"],
+            "rating": card["rating"],
+            "quality": card["quality"],
+            "thumbnail": card["thumbnail"],
+        })
     return jsonify({"results": matches})
 
 
@@ -1189,6 +1246,7 @@ def movies_api():
         return jsonify({"error": str(error)}), 503
 
     query = request.args.get("q", "").strip().casefold()[:100]
+    q_words = [w for w in re.split(r"[^a-z0-9]+", query) if w] if query else []
     category = request.args.get("category", "").strip().casefold()
     language = request.args.get("language", "").strip().casefold()
     genre = request.args.get("genre", "").strip().casefold()
@@ -1255,21 +1313,28 @@ def movies_api():
             elif card["year"] != year:
                 continue
 
-        # Query Search
-        if query and query not in blob:
-            continue
+        # Query Search with typo tolerance
+        score = 0
+        if q_words:
+            score = _score_fuzzy_match(q_words, card, blob)
+            if score == 0:
+                continue
 
-        results.append(card)
+        results.append({"card": card, "score": score})
 
     # Sorting
-    if sort == "title":
-        results.sort(key=lambda c: c["title"].casefold())
+    if q_words and sort == "newest":
+        results.sort(key=lambda r: (r["score"], r["card"].get("mix_score", 0)), reverse=True)
+    elif sort == "title":
+        results.sort(key=lambda r: r["card"]["title"].casefold())
     elif sort == "year":
-        results.sort(key=lambda c: ((c["year"] or "0000"), c.get("rating_num", 0)), reverse=True)
+        results.sort(key=lambda r: ((r["card"]["year"] or "0000"), r["card"].get("rating_num", 0)), reverse=True)
     elif sort == "rating":
-        results.sort(key=lambda c: (c.get("rating_num", 0), c.get("mix_score", 0)), reverse=True)
+        results.sort(key=lambda r: (r["card"].get("rating_num", 0), r["card"].get("mix_score", 0)), reverse=True)
     else:  # newest / default (Recent releases mixed with best rating)
-        results.sort(key=lambda c: c.get("mix_score", 0), reverse=True)
+        results.sort(key=lambda r: r["card"].get("mix_score", 0), reverse=True)
+
+    items_list = [r["card"] for r in results]
 
     # 20 movies in every page (strictly as requested)
     try:
@@ -1281,9 +1346,9 @@ def movies_api():
     except ValueError:
         return jsonify({"error": "page and per_page must be integers"}), 400
 
-    total = len(results)
+    total = len(items_list)
     start = (page - 1) * per_page
-    items = results[start:start + per_page]
+    items = items_list[start:start + per_page]
 
     return jsonify({
         "items": items,

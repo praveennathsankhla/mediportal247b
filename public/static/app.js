@@ -156,6 +156,81 @@
   let _clientDetailsMap = null;
   const _clientChunkCache = {};
 
+  // Levenshtein distance for fuzzy matching typos
+  function levenshteinDistance(s1, s2) {
+    if (s1.length < s2.length) return levenshteinDistance(s2, s1);
+    if (s2.length === 0) return s1.length;
+    let prev = [];
+    for (let j = 0; j <= s2.length; j++) prev[j] = j;
+    for (let i = 0; i < s1.length; i++) {
+      const curr = [i + 1];
+      const c1 = s1[i];
+      for (let j = 0; j < s2.length; j++) {
+        const cost = c1 === s2[j] ? 0 : 1;
+        curr[j + 1] = Math.min(prev[j + 1] + 1, curr[j] + 1, prev[j] + cost);
+      }
+      prev = curr;
+    }
+    return prev[s2.length];
+  }
+
+  // Multi-token fuzzy match scorer
+  function scoreFuzzyMatch(queryWords, movie) {
+    const fullText = `${movie.full_name || ""} ${movie.title || ""}`.toLowerCase();
+    const titleWords = fullText.split(/[^a-z0-9]+/).filter(Boolean);
+    const blobWords = `${fullText} ${movie.year || ""} ${movie.language || ""} ${movie.genres || ""} ${movie.quality || ""}`
+      .toLowerCase()
+      .split(/[^a-z0-9]+/)
+      .filter(Boolean);
+
+    let totalScore = 0;
+    for (const qw of queryWords) {
+      const qLen = qw.length;
+      let bestTokenScore = 0;
+
+      // 1. Exact token match in title
+      for (const tw of titleWords) {
+        if (tw === qw) {
+          bestTokenScore = Math.max(bestTokenScore, 100);
+          break;
+        } else if (tw.startsWith(qw)) {
+          bestTokenScore = Math.max(bestTokenScore, 85);
+        } else if (tw.includes(qw)) {
+          bestTokenScore = Math.max(bestTokenScore, 75);
+        }
+      }
+
+      // 2. Fuzzy match in title tokens
+      if (bestTokenScore < 100) {
+        const maxDist = qLen >= 5 ? 2 : qLen >= 3 ? 1 : 0;
+        for (const tw of titleWords) {
+          if (Math.abs(tw.length - qLen) > maxDist) continue;
+          const d = levenshteinDistance(qw, tw);
+          if (d <= maxDist) {
+            const fuzzyScore = 70 - d * 20;
+            if (fuzzyScore > bestTokenScore) bestTokenScore = fuzzyScore;
+          }
+        }
+      }
+
+      // 3. Match in other metadata (year, genre, audio, cast)
+      if (bestTokenScore === 0) {
+        for (const bw of blobWords) {
+          if (bw === qw || bw.includes(qw)) {
+            bestTokenScore = 40;
+            break;
+          }
+        }
+      }
+
+      // If any word in multi-word query doesn't match at all, reject
+      if (bestTokenScore === 0) return 0;
+      totalScore += bestTokenScore;
+    }
+
+    return totalScore;
+  }
+
   async function getJson(url, signal) {
     try {
       const response = await fetch(url, {
@@ -209,11 +284,28 @@
       if (url.startsWith("/api/suggest")) {
         const qMatch = url.match(/[?&]q=([^&]+)/);
         const query = qMatch ? decodeURIComponent(qMatch[1]).toLowerCase().trim() : "";
-        if (!query) return { suggestions: [] };
-        const matches = _clientAllMoviesCache
-          .filter((m) => (m.title || "").toLowerCase().includes(query) || (m.full_name || "").toLowerCase().includes(query))
-          .slice(0, 8);
-        return { suggestions: matches };
+        if (!query || query.length < 2) return { results: [] };
+
+        const qWords = query.split(/[^a-z0-9]+/).filter(Boolean);
+        const scoredMatches = [];
+
+        for (const m of _clientAllMoviesCache) {
+          const score = scoreFuzzyMatch(qWords, m);
+          if (score > 0) {
+            scoredMatches.push({ score, movie: m });
+          }
+        }
+
+        scoredMatches.sort((a, b) => b.score - a.score);
+        const results = scoredMatches.slice(0, 8).map((item) => ({
+          id: item.movie.id,
+          title: item.movie.title,
+          year: item.movie.year,
+          rating: item.movie.rating,
+          quality: item.movie.quality,
+          thumbnail: item.movie.thumbnail,
+        }));
+        return { results };
       }
 
       // Handle /api/movies query filtering
@@ -227,38 +319,49 @@
       const perPage = Math.max(1, parseInt(urlObj.searchParams.get("per_page") || "20", 10));
       const sort = urlObj.searchParams.get("sort") || "newest";
 
-      let filtered = _clientAllMoviesCache.filter((m) => {
-        if (q) {
-          const blob = `${m.title} ${m.full_name} ${m.year} ${m.language} ${m.genres} ${m.quality}`.toLowerCase();
-          if (!blob.includes(q)) return false;
-        }
+      const qWords = q ? q.split(/[^a-z0-9]+/).filter(Boolean) : [];
+      const scoredItems = [];
+
+      for (const m of _clientAllMoviesCache) {
         if (category && category !== "all") {
           const l = (m.language || "").toLowerCase();
-          if (category === "dual-audio" && !m.is_dual) return false;
-          if (category === "bollywood" && (!l.includes("hindi") || l.includes("telugu") || l.includes("tamil"))) return false;
-          if (category === "hollywood" && !l.includes("english")) return false;
-          if (category === "web-series" && !m.is_series) return false;
-          if (category === "south-dubbed" && !((l.includes("telugu") || l.includes("tamil") || l.includes("kannada") || l.includes("malayalam")) || (m.title || "").toLowerCase().includes("hindi dubbed"))) return false;
-          if (category === "4k" && !m.is_4k) return false;
+          if (category === "dual-audio" && !m.is_dual) continue;
+          if (category === "bollywood" && (!l.includes("hindi") || l.includes("telugu") || l.includes("tamil"))) continue;
+          if (category === "hollywood" && !l.includes("english")) continue;
+          if (category === "web-series" && !m.is_series) continue;
+          if (category === "south-dubbed" && !((l.includes("telugu") || l.includes("tamil") || l.includes("kannada") || l.includes("malayalam")) || (m.title || "").toLowerCase().includes("hindi dubbed"))) continue;
+          if (category === "4k" && !m.is_4k) continue;
         }
-        if (genre && !(m.genres || "").toLowerCase().includes(genre)) return false;
-        if (year && !(m.year || "").includes(year)) return false;
-        if (quality && !(m.quality || "").toLowerCase().includes(quality)) return false;
-        return true;
-      });
+        if (genre && !(m.genres || "").toLowerCase().includes(genre)) continue;
+        if (year && !(m.year || "").includes(year)) continue;
+        if (quality && !(m.quality || "").toLowerCase().includes(quality)) continue;
 
-      if (sort === "rating") {
-        filtered.sort((a, b) => (parseFloat(b.rating) || 0) - (parseFloat(a.rating) || 0));
-      } else if (sort === "year") {
-        filtered.sort((a, b) => (parseInt(b.year, 10) || 0) - (parseInt(a.year, 10) || 0));
-      } else if (sort === "title") {
-        filtered.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
+        let score = 0;
+        if (qWords.length > 0) {
+          score = scoreFuzzyMatch(qWords, m);
+          if (score === 0) continue;
+        }
+
+        scoredItems.push({ score, movie: m });
       }
 
-      const total = filtered.length;
+      if (qWords.length > 0 && sort === "newest") {
+        // When searching, sort by best relevance match first
+        scoredItems.sort((a, b) => b.score - a.score || (b.movie.mix_score || 0) - (a.movie.mix_score || 0));
+      } else if (sort === "rating") {
+        scoredItems.sort((a, b) => (parseFloat(b.movie.rating) || 0) - (parseFloat(a.movie.rating) || 0));
+      } else if (sort === "year") {
+        scoredItems.sort((a, b) => (parseInt(b.movie.year, 10) || 0) - (parseInt(a.movie.year, 10) || 0));
+      } else if (sort === "title") {
+        scoredItems.sort((a, b) => (a.movie.title || "").localeCompare(b.movie.title || ""));
+      } else {
+        scoredItems.sort((a, b) => (b.movie.mix_score || 0) - (a.movie.mix_score || 0));
+      }
+
+      const total = scoredItems.length;
       const pages = Math.max(1, Math.ceil(total / perPage));
       const start = (page - 1) * perPage;
-      const items = filtered.slice(start, start + perPage);
+      const items = scoredItems.slice(start, start + perPage).map((si) => si.movie);
 
       return {
         total,
