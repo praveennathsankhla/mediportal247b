@@ -109,6 +109,7 @@
     modalDownloadFallback: document.querySelector("#modal-download-fallback"),
     modalSourceLink: document.querySelector("#modal-source-link"),
     modalRelatedGrid: document.querySelector("#modal-related-grid"),
+    jumpDownloadBtn: document.querySelector("#jump-download-btn"),
 
     // Lightbox & Toast
     lightboxModal: document.querySelector("#lightbox-modal"),
@@ -1479,6 +1480,23 @@
       DOM.pageJumpBtn.addEventListener("click", handleJump);
       DOM.pageJumpInput.addEventListener("keydown", (e) => {
         if (e.key === "Enter") handleJump();
+      });
+    }
+
+    // Jump to Download button in modal
+    if (DOM.jumpDownloadBtn) {
+      DOM.jumpDownloadBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const dlSection = document.querySelector("#download-section");
+        const modalWin = document.querySelector(".modal-window");
+        if (dlSection && modalWin) {
+          modalWin.scrollTo({
+            top: dlSection.offsetTop - 20,
+            behavior: "smooth",
+          });
+        } else if (dlSection) {
+          dlSection.scrollIntoView({ behavior: "smooth" });
+        }
       });
     }
 
