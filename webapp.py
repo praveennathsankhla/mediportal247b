@@ -20,7 +20,6 @@ ROOT_DIR = Path(__file__).resolve().parent
 DATA_DIR = ROOT_DIR / "data"
 DATA_FILE = DATA_DIR / "movies.json"
 THUMBNAILS_DIR = DATA_DIR / "thumbnails"
-PERSISTENCE_LOCK_FILE = DATA_DIR / "scraper.lock"
 
 app = Flask(__name__)
 _catalog_lock = threading.Lock()
@@ -32,53 +31,9 @@ _catalog_filters = {}
 _catalog_featured = []
 _existing_thumbnails = set()
 
-if os.name == "nt":
-    import msvcrt
-else:
-    import fcntl
-
 
 class CatalogReadError(Exception):
     pass
-
-
-@contextmanager
-def catalog_file_lock():
-    PERSISTENCE_LOCK_FILE.parent.mkdir(parents=True, exist_ok=True)
-    with PERSISTENCE_LOCK_FILE.open("a+b") as lock_file:
-        if os.name == "nt":
-            lock_file.seek(0, os.SEEK_END)
-            if lock_file.tell() == 0:
-                lock_file.write(b"\0")
-                lock_file.flush()
-            max_attempts = 10
-            for attempt in range(max_attempts):
-                lock_file.seek(0)
-                try:
-                    msvcrt.locking(lock_file.fileno(), msvcrt.LK_NBLCK, 1)
-                    break
-                except OSError:
-                    if attempt == max_attempts - 1:
-                        # Continue without lock if scraper lock is stale
-                        logger.warning("Could not acquire file lock, proceeding without lock.")
-                        break
-                    time.sleep(0.05)
-        else:
-            fcntl.flock(lock_file.fileno(), fcntl.LOCK_EX)
-        try:
-            yield
-        finally:
-            if os.name == "nt":
-                try:
-                    lock_file.seek(0)
-                    msvcrt.locking(lock_file.fileno(), msvcrt.LK_UNLCK, 1)
-                except OSError:
-                    pass
-            else:
-                try:
-                    fcntl.flock(lock_file.fileno(), fcntl.LOCK_UN)
-                except OSError:
-                    pass
 
 
 def clean_str(val):
@@ -350,17 +305,16 @@ def load_catalog_data():
     signature = (stat.st_mtime_ns, stat.st_size)
     with _catalog_lock:
         if signature != _catalog_signature or not _catalog_movies:
-            with catalog_file_lock():
-                try:
-                    with DATA_FILE.open("r", encoding="utf-8") as source:
-                        raw_movies = json.load(source)
-                    stat = DATA_FILE.stat()
-                    signature = (stat.st_mtime_ns, stat.st_size)
-                except (OSError, json.JSONDecodeError) as error:
-                    if _catalog_movies:
-                        logger.warning(f"Error refreshing catalog from disk, using cached version: {error}")
-                        return _catalog_movies
-                    raise CatalogReadError(f"Could not read movie data: {error}") from error
+            try:
+                with DATA_FILE.open("r", encoding="utf-8") as source:
+                    raw_movies = json.load(source)
+                stat = DATA_FILE.stat()
+                signature = (stat.st_mtime_ns, stat.st_size)
+            except (OSError, json.JSONDecodeError) as error:
+                if _catalog_movies:
+                    logger.warning(f"Error refreshing catalog from disk, using cached version: {error}")
+                    return _catalog_movies
+                raise CatalogReadError(f"Could not read movie data: {error}") from error
 
             if not isinstance(raw_movies, list):
                 if _catalog_movies:
@@ -528,6 +482,7 @@ def build_seo_meta(
     canonical_url=None,
     movie=None,
     page_num=1,
+    **kwargs,
 ):
     host_url = request.host_url.rstrip("/")
     if not canonical_url:
@@ -735,6 +690,104 @@ def build_seo_meta(
             "json_ld": json_ld,
         }
 
+    elif page_type == "contact":
+        seo_title = "Contact Support & Inquiries | MediPortal247"
+        seo_desc = "Contact the MediPortal247 administrative, technical, and compliance desk for feedback, catalog questions, and general assistance."
+        json_ld = {
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": seo_title,
+            "description": seo_desc,
+            "url": canonical_url,
+        }
+        return {
+            "title": seo_title,
+            "description": seo_desc,
+            "canonical": canonical_url,
+            "og_type": "website",
+            "image": default_image,
+            "json_ld": json_ld,
+        }
+
+    elif page_type == "disclaimer":
+        seo_title = "Legal Disclaimer & Content Indexing Policy | MediPortal247"
+        seo_desc = "MediPortal247 non-hosting statement, third-party link indexing terms, and educational fair-use entertainment disclaimer."
+        json_ld = {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": seo_title,
+            "description": seo_desc,
+            "url": canonical_url,
+        }
+        return {
+            "title": seo_title,
+            "description": seo_desc,
+            "canonical": canonical_url,
+            "og_type": "website",
+            "image": default_image,
+            "json_ld": json_ld,
+        }
+
+    elif page_type == "category":
+        cat_name = kwargs.get("category_name", "Movies")
+        seo_title = f"{cat_name} Movies & Web Series Download (480p, 720p, 1080p, 4K) | MediPortal247"
+        seo_desc = f"Explore and download verified {cat_name} movies and TV shows in 480p, 720p, 1080p and 4K Ultra HD on MediPortal247 with fast Google Drive links."
+        json_ld = {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": seo_title,
+            "description": seo_desc,
+            "url": canonical_url,
+        }
+        return {
+            "title": seo_title,
+            "description": seo_desc,
+            "canonical": canonical_url,
+            "og_type": "website",
+            "image": default_image,
+            "json_ld": json_ld,
+        }
+
+    elif page_type == "genre":
+        genre_name = kwargs.get("genre_name", "Action")
+        seo_title = f"{genre_name} Movies Download — Full HD & 4K Collection | MediPortal247"
+        seo_desc = f"Download top rated {genre_name} movies and series in 480p, 720p, 1080p FHD with Dual Audio (Hindi-English) on MediPortal247."
+        json_ld = {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": seo_title,
+            "description": seo_desc,
+            "url": canonical_url,
+        }
+        return {
+            "title": seo_title,
+            "description": seo_desc,
+            "canonical": canonical_url,
+            "og_type": "website",
+            "image": default_image,
+            "json_ld": json_ld,
+        }
+
+    elif page_type == "year":
+        year_name = kwargs.get("year_name", "2025")
+        seo_title = f"{year_name} Movies & Series Releases Download | MediPortal247"
+        seo_desc = f"Browse all {year_name} released movies and series. Download in full 480p, 720p, 1080p and 4K UHD with high speed servers on MediPortal247."
+        json_ld = {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": seo_title,
+            "description": seo_desc,
+            "url": canonical_url,
+        }
+        return {
+            "title": seo_title,
+            "description": seo_desc,
+            "canonical": canonical_url,
+            "og_type": "website",
+            "image": default_image,
+            "json_ld": json_ld,
+        }
+
     elif page_type == "serp-preview":
         seo_title = "Google SERP Snippet Preview & SEO Optimizer | MediPortal247"
         seo_desc = "Interactive Google SERP Snippet Preview simulator. Test Title Tag (50-60 chars), Meta Description (140-160 chars), and rich snippet star ratings live."
@@ -893,6 +946,52 @@ def submit_movie_request():
         return jsonify({"error": "Failed to save request"}), 500
 
 
+@app.get("/contact")
+def contact_page():
+    get_catalog()
+    seo = build_seo_meta("contact")
+    return render_template("contact.html", seo=seo)
+
+
+@app.get("/disclaimer")
+def disclaimer_page():
+    get_catalog()
+    seo = build_seo_meta("disclaimer")
+    return render_template("disclaimer.html", seo=seo)
+
+
+@app.get("/category/<category_slug>")
+def category_page(category_slug):
+    get_catalog()
+    cat_names = {
+        "bollywood": "Bollywood",
+        "hollywood": "Hollywood",
+        "dual-audio": "Dual Audio [Hindi-English]",
+        "web-series": "Web Series & TV Shows",
+        "south-dubbed": "South Indian Hindi Dubbed",
+        "4k": "4K Ultra HD",
+        "all": "All Releases",
+    }
+    name = cat_names.get(category_slug.lower(), category_slug.replace("-", " ").title())
+    seo = build_seo_meta("category", category_name=name)
+    return render_template("index.html", initial_category=category_slug, seo=seo)
+
+
+@app.get("/genre/<genre_slug>")
+def genre_page(genre_slug):
+    get_catalog()
+    name = genre_slug.replace("-", " ").title()
+    seo = build_seo_meta("genre", genre_name=name)
+    return render_template("index.html", initial_genre=genre_slug, seo=seo)
+
+
+@app.get("/year/<int:year_val>")
+def year_page(year_val):
+    get_catalog()
+    seo = build_seo_meta("year", year_name=str(year_val))
+    return render_template("index.html", initial_year=str(year_val), seo=seo)
+
+
 @app.get("/privacy-policy")
 def privacy_policy_page():
     get_catalog()
@@ -920,6 +1019,53 @@ def robots_txt():
 
 @app.get("/sitemap.xml")
 def sitemap_xml():
+    """Generates a standard sitemap index pointing to sub-sitemaps (categories, pages, and movies)"""
+    get_catalog()
+    host_url = request.host_url.rstrip("/")
+    total_movies = len(_catalog_movies)
+    chunk_size = 5000
+    total_parts = max(1, (total_movies + chunk_size - 1) // chunk_size)
+
+    xml_lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        f'  <sitemap><loc>{host_url}/sitemap-pages.xml</loc></sitemap>',
+        f'  <sitemap><loc>{host_url}/sitemap-categories.xml</loc></sitemap>',
+    ]
+    for p in range(1, total_parts + 1):
+        xml_lines.append(f'  <sitemap><loc>{host_url}/sitemap-movies-{p}.xml</loc></sitemap>')
+    xml_lines.append("</sitemapindex>")
+    return "\n".join(xml_lines), 200, {"Content-Type": "application/xml; charset=utf-8"}
+
+
+@app.get("/sitemap-pages.xml")
+def sitemap_pages_xml():
+    host_url = request.host_url.rstrip("/")
+    xml_lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
+    static_routes = [
+        ("/", "1.0", "daily"),
+        ("/how-to-download", "0.9", "weekly"),
+        ("/request-movies", "0.8", "weekly"),
+        ("/serp-preview", "0.8", "weekly"),
+        ("/about", "0.7", "monthly"),
+        ("/contact", "0.7", "monthly"),
+        ("/dmca", "0.6", "monthly"),
+        ("/disclaimer", "0.6", "monthly"),
+        ("/privacy-policy", "0.6", "monthly"),
+    ]
+    for path, prio, freq in static_routes:
+        xml_lines.append(
+            f"  <url><loc>{host_url}{path}</loc><changefreq>{freq}</changefreq><priority>{prio}</priority></url>"
+        )
+    xml_lines.append("</urlset>")
+    return "\n".join(xml_lines), 200, {"Content-Type": "application/xml; charset=utf-8"}
+
+
+@app.get("/sitemap-categories.xml")
+def sitemap_categories_xml():
     get_catalog()
     host_url = request.host_url.rstrip("/")
     xml_lines = [
@@ -927,27 +1073,53 @@ def sitemap_xml():
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ]
 
-    static_routes = [
-        ("/", "1.0", "daily"),
-        ("/how-to-download", "0.9", "weekly"),
-        ("/request-movies", "0.8", "weekly"),
-        ("/serp-preview", "0.8", "weekly"),
-        ("/about", "0.7", "monthly"),
-        ("/dmca", "0.5", "monthly"),
-        ("/privacy-policy", "0.5", "monthly"),
-    ]
-
-    for path, prio, freq in static_routes:
+    # Main categories
+    categories = ["bollywood", "hollywood", "dual-audio", "web-series", "south-dubbed", "4k"]
+    for cat in categories:
         xml_lines.append(
-            f"  <url><loc>{host_url}{path}</loc><changefreq>{freq}</changefreq><priority>{prio}</priority></url>"
+            f"  <url><loc>{host_url}/category/{cat}</loc><changefreq>daily</changefreq><priority>0.9</priority></url>"
         )
 
-    for m in _catalog_movies[:500]:
+    # Top genres
+    genres = _catalog_filters.get("genres", [])
+    for g in genres[:35]:
+        g_slug = quote_plus(g)
+        xml_lines.append(
+            f"  <url><loc>{host_url}/genre/{g_slug}</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>"
+        )
+
+    # Years
+    years = _catalog_filters.get("years", [])
+    for y in years[:25]:
+        xml_lines.append(
+            f"  <url><loc>{host_url}/year/{y}</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>"
+        )
+
+    xml_lines.append("</urlset>")
+    return "\n".join(xml_lines), 200, {"Content-Type": "application/xml; charset=utf-8"}
+
+
+@app.get("/sitemap-movies-<int:part_num>.xml")
+def sitemap_movies_xml(part_num):
+    get_catalog()
+    host_url = request.host_url.rstrip("/")
+    chunk_size = 5000
+    start_idx = (part_num - 1) * chunk_size
+    end_idx = start_idx + chunk_size
+    movies_slice = _catalog_movies[start_idx:end_idx]
+
+    if not movies_slice:
+        abort(404)
+
+    xml_lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
+    for m in movies_slice:
         mid = m["__card"]["id"]
         xml_lines.append(
             f"  <url><loc>{host_url}/movie/{mid}</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>"
         )
-
     xml_lines.append("</urlset>")
     return "\n".join(xml_lines), 200, {"Content-Type": "application/xml; charset=utf-8"}
 

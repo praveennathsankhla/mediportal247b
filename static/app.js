@@ -205,11 +205,41 @@
   function syncStateFromUrl() {
     const params = new URLSearchParams(window.location.search);
     state.query = params.get("q") || "";
-    state.category = params.get("category") || "all";
+    
+    // Check category from URL param or initial window context
+    const catMatch = window.location.pathname.match(/\/category\/([a-z0-9_-]+)/i);
+    if (catMatch) {
+      state.category = catMatch[1];
+    } else if (window.INITIAL_CATEGORY) {
+      state.category = window.INITIAL_CATEGORY;
+    } else {
+      state.category = params.get("category") || "all";
+    }
+
     state.language = params.get("language") || "";
-    state.genre = params.get("genre") || "";
+
+    // Check genre from URL pathname or initial window context
+    const genreMatch = window.location.pathname.match(/\/genre\/([a-z0-9_%-]+)/i);
+    if (genreMatch) {
+      state.genre = decodeURIComponent(genreMatch[1]);
+    } else if (window.INITIAL_GENRE) {
+      state.genre = window.INITIAL_GENRE;
+    } else {
+      state.genre = params.get("genre") || "";
+    }
+
     state.quality = params.get("quality") || "";
-    state.year = params.get("year") || "";
+
+    // Check year from URL pathname or initial window context
+    const yearMatch = window.location.pathname.match(/\/year\/(\d+)/i);
+    if (yearMatch) {
+      state.year = yearMatch[1];
+    } else if (window.INITIAL_YEAR) {
+      state.year = window.INITIAL_YEAR;
+    } else {
+      state.year = params.get("year") || "";
+    }
+
     state.sort = params.get("sort") || "newest";
 
     // Check page from pathname e.g. /page/3 or query param

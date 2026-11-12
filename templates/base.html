@@ -43,6 +43,9 @@
   <script>
     window.INITIAL_MOVIE_ID = {{ initial_movie_id|tojson if initial_movie_id else 'null' }};
     window.INITIAL_PAGE = {{ initial_page|tojson if initial_page else 'null' }};
+    window.INITIAL_CATEGORY = {{ initial_category|tojson if initial_category else 'null' }};
+    window.INITIAL_GENRE = {{ initial_genre|tojson if initial_genre else 'null' }};
+    window.INITIAL_YEAR = {{ initial_year|tojson if initial_year else 'null' }};
   </script>
   <script src="{{ url_for('static', filename='app.js') }}" defer></script>
 </head>
@@ -118,7 +121,9 @@
             <a href="/request-movies">📩 Request Movies</a>
             <a href="/serp-preview">🔍 SERP Preview &amp; SEO</a>
             <a href="/about">ℹ️ About Us</a>
+            <a href="/contact">📬 Contact Us</a>
             <a href="/dmca">⚖️ DMCA Disclaimer</a>
+            <a href="/disclaimer">📜 Site Disclaimer</a>
             <a href="/privacy-policy">🔒 Privacy Policy</a>
           </div>
         </div>
@@ -170,7 +175,9 @@
           <a class="drawer-link" href="/request-movies">📩 Request Movies</a>
           <a class="drawer-link" href="/serp-preview">🔍 SERP Preview &amp; SEO</a>
           <a class="drawer-link" href="/about">ℹ️ About MediPortal247</a>
+          <a class="drawer-link" href="/contact">📬 Contact Us</a>
           <a class="drawer-link" href="/dmca">⚖️ DMCA Disclaimer</a>
+          <a class="drawer-link" href="/disclaimer">📜 Site Disclaimer</a>
           <a class="drawer-link" href="/privacy-policy">🔒 Privacy Policy</a>
         </div>
       </div>
@@ -264,9 +271,11 @@
           <li><a href="/request-movies">📩 Request Movies</a></li>
           <li><a href="/serp-preview">🔍 SERP Preview &amp; SEO</a></li>
           <li><a href="/about">ℹ️ About Us</a></li>
-          <li><a href="/dmca">⚖️ DMCA Disclaimer</a></li>
+          <li><a href="/contact">📬 Contact Support</a></li>
+          <li><a href="/dmca">⚖️ DMCA Notice</a></li>
+          <li><a href="/disclaimer">📜 Legal Disclaimer</a></li>
           <li><a href="/privacy-policy">🔒 Privacy Policy &amp; Terms</a></li>
-          <li><a href="/sitemap.xml" target="_blank">🗺️ XML Sitemap</a></li>
+          <li><a href="/sitemap.xml" target="_blank">🗺️ XML Sitemap Index</a></li>
         </ul>
       </div>
 
