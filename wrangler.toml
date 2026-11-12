@@ -1,6 +1,0 @@
-name = "mediportal247"
-compatibility_date = "2024-11-01"
-
-# Cloudflare Pages / Workers static asset configuration
-[site]
-bucket = "./static"
