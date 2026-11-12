@@ -151,16 +151,126 @@
       .replace(/'/g, "&#039;");
   }
 
+  let _clientAllMoviesCache = null;
+  let _clientDetailsMap = null;
+  const _clientChunkCache = {};
+
   async function getJson(url, signal) {
-    const response = await fetch(url, {
-      signal,
-      headers: { Accept: "application/json" },
-    });
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error(data.error || `HTTP error ${response.status}`);
+    try {
+      const response = await fetch(url, {
+        signal,
+        headers: { Accept: "application/json" },
+      });
+      if (response.ok) {
+        return await response.json();
+      }
+    } catch (e) {
+      // Fallback for static environments (like Cloudflare Pages / Assets)
     }
-    return data;
+
+    // Static fallback routing
+    if (url.startsWith("/api/filters")) {
+      const res = await fetch("/api/filters.json");
+      if (res.ok) return await res.json();
+    } else if (url.startsWith("/api/featured")) {
+      const res = await fetch("/api/featured.json");
+      if (res.ok) return await res.json();
+    } else if (url.startsWith("/api/movie?id=")) {
+      const idMatch = url.match(/[?&]id=([^&]+)/);
+      if (idMatch) {
+        const movieId = decodeURIComponent(idMatch[1]);
+        if (!_clientDetailsMap) {
+          const mapRes = await fetch("/api/details_map.json");
+          if (mapRes.ok) _clientDetailsMap = await mapRes.json();
+        }
+        const chunkIdx = _clientDetailsMap ? _clientDetailsMap[movieId] : undefined;
+        if (chunkIdx !== undefined) {
+          if (!_clientChunkCache[chunkIdx]) {
+            const chunkRes = await fetch(`/api/details/chunk_${chunkIdx}.json`);
+            if (chunkRes.ok) _clientChunkCache[chunkIdx] = await chunkRes.json();
+          }
+          if (_clientChunkCache[chunkIdx] && _clientChunkCache[chunkIdx][movieId]) {
+            return _clientChunkCache[chunkIdx][movieId];
+          }
+        }
+      }
+    } else if (url.startsWith("/api/movies") || url.startsWith("/api/suggest")) {
+      // Load and filter on the client side using movies_all.json
+      if (!_clientAllMoviesCache) {
+        const res = await fetch("/api/movies_all.json");
+        if (res.ok) {
+          _clientAllMoviesCache = await res.json();
+        } else {
+          _clientAllMoviesCache = [];
+        }
+      }
+
+      if (url.startsWith("/api/suggest")) {
+        const qMatch = url.match(/[?&]q=([^&]+)/);
+        const query = qMatch ? decodeURIComponent(qMatch[1]).toLowerCase().trim() : "";
+        if (!query) return { suggestions: [] };
+        const matches = _clientAllMoviesCache
+          .filter((m) => (m.title || "").toLowerCase().includes(query) || (m.full_name || "").toLowerCase().includes(query))
+          .slice(0, 8);
+        return { suggestions: matches };
+      }
+
+      // Handle /api/movies query filtering
+      const urlObj = new URL(url, window.location.origin);
+      const q = (urlObj.searchParams.get("q") || "").toLowerCase().trim();
+      const category = (urlObj.searchParams.get("category") || "").toLowerCase().trim();
+      const genre = (urlObj.searchParams.get("genre") || "").toLowerCase().trim();
+      const year = (urlObj.searchParams.get("year") || "").trim();
+      const quality = (urlObj.searchParams.get("quality") || "").toLowerCase().trim();
+      const page = Math.max(1, parseInt(urlObj.searchParams.get("page") || "1", 10));
+      const perPage = Math.max(1, parseInt(urlObj.searchParams.get("per_page") || "20", 10));
+      const sort = urlObj.searchParams.get("sort") || "newest";
+
+      let filtered = _clientAllMoviesCache.filter((m) => {
+        if (q) {
+          const blob = `${m.title} ${m.full_name} ${m.year} ${m.language} ${m.genres} ${m.quality}`.toLowerCase();
+          if (!blob.includes(q)) return false;
+        }
+        if (category && category !== "all") {
+          const l = (m.language || "").toLowerCase();
+          if (category === "dual-audio" && !m.is_dual) return false;
+          if (category === "bollywood" && (!l.includes("hindi") || l.includes("telugu") || l.includes("tamil"))) return false;
+          if (category === "hollywood" && !l.includes("english")) return false;
+          if (category === "web-series" && !m.is_series) return false;
+          if (category === "south-dubbed" && !((l.includes("telugu") || l.includes("tamil") || l.includes("kannada") || l.includes("malayalam")) || (m.title || "").toLowerCase().includes("hindi dubbed"))) return false;
+          if (category === "4k" && !m.is_4k) return false;
+        }
+        if (genre && !(m.genres || "").toLowerCase().includes(genre)) return false;
+        if (year && !(m.year || "").includes(year)) return false;
+        if (quality && !(m.quality || "").toLowerCase().includes(quality)) return false;
+        return true;
+      });
+
+      if (sort === "rating") {
+        filtered.sort((a, b) => (parseFloat(b.rating) || 0) - (parseFloat(a.rating) || 0));
+      } else if (sort === "year") {
+        filtered.sort((a, b) => (parseInt(b.year, 10) || 0) - (parseInt(a.year, 10) || 0));
+      } else if (sort === "title") {
+        filtered.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
+      }
+
+      const total = filtered.length;
+      const pages = Math.max(1, Math.ceil(total / perPage));
+      const start = (page - 1) * perPage;
+      const items = filtered.slice(start, start + perPage);
+
+      return {
+        total,
+        page,
+        per_page: perPage,
+        pages,
+        items,
+      };
+    } else if (url.startsWith("/api/status")) {
+      return { total: _clientAllMoviesCache ? _clientAllMoviesCache.length : 16851 };
+    }
+
+    throw new Error(`Endpoint not found: ${url}`);
   }
 
   function showToast(message) {

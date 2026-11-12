@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070a13">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Google SERP Snippet Preview &amp; SEO Optimizer | MediPortal247</title>
+  <meta name="title" content="Google SERP Snippet Preview &amp; SEO Optimizer | MediPortal247">
+  <meta name="description" content="Interactive Google SERP Snippet Preview simulator. Test Title Tag (50-60 chars), Meta Description (140-160 chars), and rich snippet star ratings live.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="http://localhost/serp-preview">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost/serp-preview">
+  <meta property="og:title" content="Google SERP Snippet Preview &amp; SEO Optimizer | MediPortal247">
+  <meta property="og:description" content="Interactive Google SERP Snippet Preview simulator. Test Title Tag (50-60 chars), Meta Description (140-160 chars), and rich snippet star ratings live.">
+  <meta property="og:image" content="http://localhost/static/og-banner.png">
+  <meta property="og:site_name" content="MediPortal247">
+
+  <!-- Twitter / X -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://localhost/serp-preview">
+  <meta property="twitter:title" content="Google SERP Snippet Preview &amp; SEO Optimizer | MediPortal247">
+  <meta property="twitter:description" content="Interactive Google SERP Snippet Preview simulator. Test Title Tag (50-60 chars), Meta Description (140-160 chars), and rich snippet star ratings live.">
+  <meta property="twitter:image" content="http://localhost/static/og-banner.png">
+
+  <!-- JSON-LD Structured Data for Google SERP Rich Snippets -->
+  
+  <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "WebApplication", "description": "Interactive Google SERP Snippet Preview simulator. Test Title Tag (50-60 chars), Meta Description (140-160 chars), and rich snippet star ratings live.", "name": "Google SERP Snippet Preview \u0026 SEO Optimizer | MediPortal247", "url": "http://localhost/serp-preview"}
+  </script>
+  
+
+  <!-- Fonts & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+
+  <script>
+    window.INITIAL_MOVIE_ID = null;
+    window.INITIAL_PAGE = null;
+    window.INITIAL_CATEGORY = null;
+    window.INITIAL_GENRE = null;
+    window.INITIAL_YEAR = null;
+  </script>
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <!-- Main Header & Navigation -->
+  <header class="topbar" id="main-header">
+    <div class="topbar-inner">
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <a class="brand" href="/" aria-label="MediPortal247 home">
+        <span class="brand-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm0 2v2h2V5H4zm16 0h-2v2h2V5zM4 9v2h2V9H4zm16 0h-2v2h2V9zM4 13v2h2v-2H4zm16 0h-2v2h2v-2zM4 17v2h2v-2H4zm16 0h-2v2h2v-2zM8 5h8v14H8V5z"/></svg>
+        </span>
+        <div class="brand-text">
+          <span class="brand-title">MEDIPORTAL<span class="brand-accent">247</span></span>
+          <span class="brand-sub">Movie &amp; Series Download Hub</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Bar -->
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a class="nav-link" href="/" data-category="all">🏠 Home</a>
+        <a class="nav-link" href="/?category=bollywood" data-category="bollywood">🇮🇳 Bollywood</a>
+        <a class="nav-link" href="/?category=hollywood" data-category="hollywood">🎬 Hollywood</a>
+        <a class="nav-link" href="/?category=dual-audio" data-category="dual-audio">🎧 Dual Audio</a>
+        <a class="nav-link" href="/?category=web-series" data-category="web-series">📺 Web Series</a>
+        <a class="nav-link" href="/?category=south-dubbed" data-category="south-dubbed">🌟 South Dubbed</a>
+        <a class="nav-link" href="/?category=4k" data-category="4k">⚡ 4K UHD</a>
+
+        <!-- Dropdowns -->
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger" type="button">🏷️ Genres <span class="arrow">▾</span></button>
+          <div class="dropdown-menu genres-dropdown" id="desktop-genres-dropdown">
+            <a href="/?genre=Action" data-genre="Action">Action</a>
+            <a href="/?genre=Adventure" data-genre="Adventure">Adventure</a>
+            <a href="/?genre=Animation" data-genre="Animation">Animation</a>
+            <a href="/?genre=Comedy" data-genre="Comedy">Comedy</a>
+            <a href="/?genre=Crime" data-genre="Crime">Crime</a>
+            <a href="/?genre=Drama" data-genre="Drama">Drama</a>
+            <a href="/?genre=Horror" data-genre="Horror">Horror</a>
+            <a href="/?genre=Mystery" data-genre="Mystery">Mystery</a>
+            <a href="/?genre=Romance" data-genre="Romance">Romance</a>
+            <a href="/?genre=Sci-Fi" data-genre="Sci-Fi">Sci-Fi</a>
+            <a href="/?genre=Thriller" data-genre="Thriller">Thriller</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger" type="button">📅 Years <span class="arrow">▾</span></button>
+          <div class="dropdown-menu years-dropdown" id="desktop-years-dropdown">
+            <a href="/?year=2026" data-year="2026">2026</a>
+            <a href="/?year=2025" data-year="2025">2025</a>
+            <a href="/?year=2024" data-year="2024">2024</a>
+            <a href="/?year=2023" data-year="2023">2023</a>
+            <a href="/?year=2022" data-year="2022">2022</a>
+            <a href="/?year=2021" data-year="2021">2021</a>
+            <a href="/?year=2020" data-year="2020">2020</a>
+            <a href="/?year=2010s" data-year="2010s">2010–2019</a>
+            <a href="/?year=2000s" data-year="2000s">2000–2009</a>
+            <a href="/?year=1990s" data-year="1990s">1990–1999</a>
+          </div>
+        </div>
+
+        <!-- Guides & Pages Dropdown -->
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger" type="button">📑 Pages <span class="arrow">▾</span></button>
+          <div class="dropdown-menu pages-dropdown">
+            <a href="/how-to-download">📖 How to Download</a>
+            <a href="/request-movies">📩 Request Movies</a>
+            <a href="/serp-preview">🔍 SERP Preview &amp; SEO</a>
+            <a href="/about">ℹ️ About Us</a>
+            <a href="/contact">📬 Contact Us</a>
+            <a href="/dmca">⚖️ DMCA Disclaimer</a>
+            <a href="/disclaimer">📜 Site Disclaimer</a>
+            <a href="/privacy-policy">🔒 Privacy Policy</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Instant Search in Topbar -->
+      <div class="header-search-wrap">
+        <form class="header-search-form" id="header-search-form" action="/" method="get">
+          <input
+            id="header-search-input"
+            name="q"
+            type="search"
+            placeholder="Search 16,850+ movies, series, cast…"
+            autocomplete="off"
+            spellcheck="false"
+            aria-label="Search movies and series"
+          >
+          <button class="search-submit-btn" type="submit" aria-label="Search">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </button>
+          <button class="search-clear-btn" id="header-search-clear" type="button" aria-label="Clear search" hidden>×</button>
+          <kbd class="search-shortcut" title="Press / to search">/</kbd>
+        </form>
+
+        <!-- Live Search Suggestions Popup -->
+        <div class="search-suggestions-box" id="search-suggestions" hidden>
+          <div class="suggestions-list" id="suggestions-list"></div>
+          <div class="suggestions-footer">
+            <span>Press <kbd>ENTER</kbd> for all results</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <span class="brand-title">MEDIPORTAL<span class="brand-accent">247</span></span>
+      </div>
+      <button class="drawer-close" id="drawer-close" type="button" aria-label="Close menu">✕</button>
+    </div>
+    <div class="drawer-content">
+      <div class="drawer-section">
+        <p class="drawer-heading">ESSENTIAL PAGES</p>
+        <div class="drawer-nav">
+          <a class="drawer-link" href="/how-to-download">📖 How to Download</a>
+          <a class="drawer-link" href="/request-movies">📩 Request Movies</a>
+          <a class="drawer-link" href="/serp-preview">🔍 SERP Preview &amp; SEO</a>
+          <a class="drawer-link" href="/about">ℹ️ About MediPortal247</a>
+          <a class="drawer-link" href="/contact">📬 Contact Us</a>
+          <a class="drawer-link" href="/dmca">⚖️ DMCA Disclaimer</a>
+          <a class="drawer-link" href="/disclaimer">📜 Site Disclaimer</a>
+          <a class="drawer-link" href="/privacy-policy">🔒 Privacy Policy</a>
+        </div>
+      </div>
+      <div class="drawer-section">
+        <p class="drawer-heading">CATEGORIES</p>
+        <div class="drawer-nav">
+          <a class="drawer-link" href="/?category=all" data-category="all">🔥 All Releases</a>
+          <a class="drawer-link" href="/?category=dual-audio" data-category="dual-audio">🎧 Dual Audio [Hindi-Eng]</a>
+          <a class="drawer-link" href="/?category=bollywood" data-category="bollywood">🇮🇳 Bollywood Movies</a>
+          <a class="drawer-link" href="/?category=hollywood" data-category="hollywood">🎬 Hollywood Movies</a>
+          <a class="drawer-link" href="/?category=web-series" data-category="web-series">📺 Web Series / TV Shows</a>
+          <a class="drawer-link" href="/?category=south-dubbed" data-category="south-dubbed">🌟 South Hindi Dubbed</a>
+          <a class="drawer-link" href="/?category=4k" data-category="4k">⚡ 4K Ultra HD</a>
+        </div>
+      </div>
+      <div class="drawer-section">
+        <p class="drawer-heading">POPULAR GENRES</p>
+        <div class="drawer-chips" id="drawer-genres-list"></div>
+      </div>
+      <div class="drawer-section">
+        <p class="drawer-heading">RELEASE YEARS</p>
+        <div class="drawer-chips" id="drawer-years-list"></div>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+  <!-- Main Content Body -->
+  <main>
+    
+<div class="content-page-wrap serp-inspector-page">
+  <!-- Page Hero Header -->
+  <header class="page-hero">
+    <div class="page-hero-badge">🔍 SEO &amp; SERP INSPECTOR</div>
+    <h1 class="page-hero-title">Google SERP Snippet &amp; SEO Preview</h1>
+    <p class="page-hero-desc">
+      Inspect, test, and optimize how MediPortal247 pages and movies appear on Google Search results. Featuring live Desktop and Mobile SERP snippet simulations.
+    </p>
+  </header>
+
+  <!-- Educational Definitions Grid -->
+  <div class="seo-definitions-grid">
+    <div class="definition-card">
+      <div class="def-badge">1. THE TITLE TAG</div>
+      <h3>Title Tag (SEO Title)</h3>
+      <p>
+        The page's primary HTML headline (<code>&lt;title&gt;</code>). It is the most critical on-page ranking and click-through factor.
+      </p>
+      <div class="def-metrics">
+        <span><strong>Ideal Length:</strong> 50–60 characters</span>
+        <span><strong>Pixel Width:</strong> Max ~600px on Desktop</span>
+      </div>
+    </div>
+
+    <div class="definition-card">
+      <div class="def-badge">2. META DESCRIPTION</div>
+      <h3>Meta Description</h3>
+      <p>
+        The concise summary rendered directly underneath the clickable title. It acts as an organic ad pitch that persuades searchers to click your link.
+      </p>
+      <div class="def-metrics">
+        <span><strong>Ideal Length:</strong> 140–160 characters</span>
+        <span><strong>Search Engines:</strong> Google, Bing, Yahoo</span>
+      </div>
+    </div>
+
+    <div class="definition-card highlight-def">
+      <div class="def-badge">3. SERP SNIPPET</div>
+      <h3>SERP Snippet</h3>
+      <p>
+        The overall search result preview, including the favicon, brand name, breadcrumbs, clickable headline, star ratings, date, and description snippet.
+      </p>
+      <div class="def-metrics">
+        <span><strong>Rich Features:</strong> Ratings ★, Sitelinks, Date</span>
+        <span><strong>Schema:</strong> Movie, Breadcrumbs, WebSite</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive SERP Simulator Box -->
+  <div class="serp-simulator-container">
+    <div class="simulator-header">
+      <div class="sim-title-wrap">
+        <h2>Live Google Search Result Preview</h2>
+        <span class="live-pill">● LIVE PREVIEW</span>
+      </div>
+
+      <div class="device-switch-group">
+        <button type="button" class="device-btn active" id="btn-desktop-view">🖥️ Desktop Search</button>
+        <button type="button" class="device-btn" id="btn-mobile-view">📱 Mobile Search</button>
+      </div>
+    </div>
+
+    <!-- Live Preview Card (Google SERP Card) -->
+    <div class="serp-preview-window desktop-mode" id="serp-preview-window">
+      <div class="google-result-card" id="google-card">
+        <!-- Top Breadcrumbs & Favicon -->
+        <div class="google-header-row">
+          <div class="google-favicon">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00e5ff"><path d="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm0 2v2h2V5H4zm16 0h-2v2h2V5zM4 9v2h2V9H4zm16 0h-2v2h2V9zM8 5h8v14H8V5z"/></svg>
+          </div>
+          <div class="google-site-info">
+            <span class="google-site-name">MediPortal247</span>
+            <span class="google-url-path" id="preview-url-display">https://mediportal247.com › movie › with-honors</span>
+          </div>
+          <button type="button" class="google-more-btn" aria-label="Search options">⋮</button>
+        </div>
+
+        <!-- Clickable Title Tag -->
+        <div class="google-title-row">
+          <h3 class="google-title-link" id="preview-title-display">
+            Download With Honors (1994) English Movie 480p | 720p | 1080p WEB-DL ESub — MediPortal247
+          </h3>
+        </div>
+
+        <!-- Rich Snippet: Ratings & Attributes -->
+        <div class="google-rich-row" id="preview-rich-row">
+          <span class="google-stars">★★★★☆</span>
+          <span class="google-rating-text" id="preview-rating-display">Rating: 6.7/10 · 24,190 votes</span>
+          <span class="google-rich-sep">·</span>
+          <span class="google-date-display" id="preview-date-display">Oct 16, 2026</span>
+        </div>
+
+        <!-- Meta Description Snippet -->
+        <div class="google-desc-row">
+          <p class="google-description-text" id="preview-desc-display">
+            Download With Honors (1994) in 480p, 720p, 1080p (480MB - 1.7GB) with English audio and subtitles. Starring Joe Pesci, Brendan Fraser. Fast Google Drive &amp; Cloud download links on MediPortal247.
+          </p>
+        </div>
+
+        <!-- Desktop Sitelinks (Visible on Desktop Mode) -->
+        <div class="google-sitelinks-table" id="preview-sitelinks">
+          <div class="sitelink-item">
+            <a href="#">⚡ Google Drive Download</a>
+            <p>Fastest high-speed mirrors with resume support.</p>
+          </div>
+          <div class="sitelink-item">
+            <a href="#">🎧 Dual Audio Movies</a>
+            <p>Hindi + English dual audio downloads.</p>
+          </div>
+          <div class="sitelink-item">
+            <a href="#">📺 Web Series Complete Packs</a>
+            <p>All seasons in 720p &amp; 1080p zip files.</p>
+          </div>
+          <div class="sitelink-item">
+            <a href="#">📖 How to Download Guide</a>
+            <p>Step-by-step tutorial for beginners.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Custom Editor & Preset Switcher -->
+    <div class="serp-editor-grid">
+      <div class="editor-col">
+        <div class="editor-card">
+          <div class="editor-header">
+            <h3>⚙️ SERP Snippet Customizer</h3>
+            <span class="editor-hint">Edit below to watch snippet update in real time</span>
+          </div>
+
+          <!-- Preset Selector -->
+          <div class="form-group">
+            <label for="serp-preset-select" class="form-label">Load Preset Page Template</label>
+            <select id="serp-preset-select" class="form-select">
+              <option value="movie">🎬 Movie Page: With Honors (1994)</option>
+              <option value="home">🏠 Home Page: MediPortal247 Main Hub</option>
+              <option value="how_to_download">📖 How to Download: Step-by-Step Tutorial</option>
+              <option value="request_movies">📩 Community Requests: Request a Movie</option>
+              <option value="about">ℹ️ About Us: Platform Architecture</option>
+              <option value="dmca">⚖️ DMCA Disclaimer: Copyright Policy</option>
+            </select>
+          </div>
+
+          <!-- Title Tag Input -->
+          <div class="form-group">
+            <div class="label-with-count">
+              <label for="edit-title" class="form-label">Title Tag (SEO Title)</label>
+              <span class="char-count" id="title-char-count">65 / 60 chars</span>
+            </div>
+            <input type="text" id="edit-title" class="form-input" value="Download With Honors (1994) English Movie 480p | 720p | 1080p WEB-DL ESub — MediPortal247">
+            <div class="length-meter-bar">
+              <div class="meter-fill" id="title-meter" style="width: 90%;"></div>
+            </div>
+          </div>
+
+          <!-- Meta Description Input -->
+          <div class="form-group">
+            <div class="label-with-count">
+              <label for="edit-desc" class="form-label">Meta Description (Short Summary)</label>
+              <span class="char-count" id="desc-char-count">152 / 160 chars</span>
+            </div>
+            <textarea id="edit-desc" class="form-textarea" rows="3">Download With Honors (1994) in 480p, 720p, 1080p (480MB - 1.7GB) with English audio and subtitles. Starring Joe Pesci, Brendan Fraser. Fast Google Drive &amp; Cloud download links on MediPortal247.</textarea>
+            <div class="length-meter-bar">
+              <div class="meter-fill" id="desc-meter" style="width: 85%;"></div>
+            </div>
+          </div>
+
+          <!-- URL / Path Input -->
+          <div class="form-row-2col">
+            <div class="form-group">
+              <label for="edit-url" class="form-label">Breadcrumb URL Path</label>
+              <input type="text" id="edit-url" class="form-input" value="https://mediportal247.com › movie › with-honors">
+            </div>
+
+            <div class="form-group">
+              <label for="edit-rating" class="form-label">IMDb Star Rating Snippet</label>
+              <input type="text" id="edit-rating" class="form-input" value="6.7">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Generated Code Inspector Column -->
+      <div class="code-col">
+        <div class="editor-card">
+          <div class="editor-header">
+            <h3>💻 Generated HTML &amp; JSON-LD Code</h3>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-copy-code">📋 Copy Code</button>
+          </div>
+          <p class="code-desc">Exact meta tags and Schema.org structured data embedded in the page's <code>&lt;head&gt;</code> for Google Search:</p>
+
+          <pre class="code-output-box"><code id="code-snippet-output">
+&lt;!-- Primary SEO Meta Tags --&gt;
+&lt;title&gt;Download With Honors (1994) English Movie 480p | 720p | 1080p WEB-DL ESub — MediPortal247&lt;/title&gt;
+&lt;meta name="description" content="Download With Honors (1994) in 480p, 720p, 1080p (480MB - 1.7GB) with English audio and subtitles. Fast Google Drive links."&gt;
+&lt;link rel="canonical" href="https://mediportal247.com/movie/with-honors"&gt;
+
+&lt;!-- Google SERP Rich Snippet Schema.org JSON-LD --&gt;
+&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Movie",
+  "name": "With Honors",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "6.7",
+    "bestRating": "10",
+    "ratingCount": "24190"
+  }
+}
+&lt;/script&gt;
+          </code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </main>
+
+  <!-- Screenshot Lightbox Modal -->
+  <dialog class="lightbox-modal" id="lightbox-modal" aria-label="Screenshot lightbox">
+    <button class="lightbox-close-btn" id="lightbox-close" type="button" aria-label="Close lightbox">✕</button>
+    <div class="lightbox-image-wrap">
+      <img id="lightbox-img" src="" alt="Movie Screenshot Preview">
+    </div>
+  </dialog>
+
+  <!-- Copy Alert Toast Notification -->
+  <div class="toast-notification" id="toast-notification" role="status" aria-live="polite" hidden>
+    <span class="toast-icon">✓</span>
+    <span class="toast-message" id="toast-message">Link copied to clipboard!</span>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col brand-col">
+        <div class="footer-brand">
+          <span class="brand-title">MEDIPORTAL<span class="brand-accent">247</span></span>
+          <span class="brand-sub">Movie &amp; Series Download Hub</span>
+        </div>
+        <p class="footer-desc">
+          Your #1 destination for Bollywood, Hollywood, Dual Audio Movies and Web Series. Featuring verified direct Google Drive and high-speed cloud mirrors.
+        </p>
+        <div class="library-counter-card">
+          <span class="counter-num" id="footer-total-count">16,851+</span>
+          <span class="counter-label">Total Movies &amp; Series in Database</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Fast Categories</h3>
+        <ul class="footer-links">
+          <li><a href="/?category=dual-audio" data-category="dual-audio">Dual Audio Movies</a></li>
+          <li><a href="/?category=bollywood" data-category="bollywood">Bollywood Movies</a></li>
+          <li><a href="/?category=hollywood" data-category="hollywood">Hollywood Hindi Dubbed</a></li>
+          <li><a href="/?category=web-series" data-category="web-series">Web Series &amp; TV Shows</a></li>
+          <li><a href="/?category=south-dubbed" data-category="south-dubbed">South Hindi Dubbed</a></li>
+          <li><a href="/?category=4k" data-category="4k">4K Ultra HD Movies</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Popular Qualities</h3>
+        <ul class="footer-links">
+          <li><a href="/?quality=1080p" data-quality="1080p">1080p Full HD Movies</a></li>
+          <li><a href="/?quality=720p" data-quality="720p">720p HD Movies</a></li>
+          <li><a href="/?quality=480p" data-quality="480p">480p Mobile Movies</a></li>
+          <li><a href="/?quality=hevc" data-quality="hevc">HEVC 10Bit Small Size</a></li>
+          <li><a href="/?quality=2160p" data-quality="2160p">2160p 4K UHD Movies</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Pages &amp; Legal</h3>
+        <ul class="footer-links">
+          <li><a href="/how-to-download">📖 How to Download</a></li>
+          <li><a href="/request-movies">📩 Request Movies</a></li>
+          <li><a href="/serp-preview">🔍 SERP Preview &amp; SEO</a></li>
+          <li><a href="/about">ℹ️ About Us</a></li>
+          <li><a href="/contact">📬 Contact Support</a></li>
+          <li><a href="/dmca">⚖️ DMCA Notice</a></li>
+          <li><a href="/disclaimer">📜 Legal Disclaimer</a></li>
+          <li><a href="/privacy-policy">🔒 Privacy Policy &amp; Terms</a></li>
+          <li><a href="/sitemap.xml" target="_blank">🗺️ XML Sitemap Index</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col full-width-disclaimer">
+        <h3 class="footer-heading">Disclaimer</h3>
+        <p class="footer-disclaimer">
+          MediPortal247 does not host any files on its servers. All files and links are indexed or provided by 3rd-party services. This portal operates strictly as a local search and catalogue indexing engine.
+        </p>
+        <span class="footer-copyright" id="footer-updated-at">Updated: Today</span>
+      </div>
+    </div>
+  </footer>
+
+  
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const editTitle = document.getElementById("edit-title");
+    const editDesc = document.getElementById("edit-desc");
+    const editUrl = document.getElementById("edit-url");
+    const editRating = document.getElementById("edit-rating");
+
+    const prevTitle = document.getElementById("preview-title-display");
+    const prevDesc = document.getElementById("preview-desc-display");
+    const prevUrl = document.getElementById("preview-url-display");
+    const prevRating = document.getElementById("preview-rating-display");
+    const prevRichRow = document.getElementById("preview-rich-row");
+
+    const titleChar = document.getElementById("title-char-count");
+    const descChar = document.getElementById("desc-char-count");
+    const titleMeter = document.getElementById("title-meter");
+    const descMeter = document.getElementById("desc-meter");
+    const codeOutput = document.getElementById("code-snippet-output");
+
+    const btnDesktop = document.getElementById("btn-desktop-view");
+    const btnMobile = document.getElementById("btn-mobile-view");
+    const previewWindow = document.getElementById("serp-preview-window");
+    const presetSelect = document.getElementById("serp-preset-select");
+    const copyCodeBtn = document.getElementById("btn-copy-code");
+
+    const presets = {
+      movie: {
+        title: "Download With Honors (1994) English Movie 480p | 720p | 1080p WEB-DL ESub — MediPortal247",
+        desc: "Download With Honors (1994) in 480p, 720p, 1080p (480MB - 1.7GB) with English audio and subtitles. Starring Joe Pesci, Brendan Fraser. Fast Google Drive & Cloud download links on MediPortal247.",
+        url: "https://mediportal247.com › movie › with-honors-1994",
+        rating: "6.7",
+        type: "Movie",
+      },
+      home: {
+        title: "MediPortal247 — Download Bollywood, Hollywood & Dual Audio Movies 480p, 720p, 1080p, 4K",
+        desc: "Download latest Bollywood, Hollywood, Dual Audio Movies and Web Series in 480p, 720p, 1080p and 4K Ultra HD. Fast Google Drive, Cloud Links with Hindi Dubbed & Subtitles.",
+        url: "https://mediportal247.com",
+        rating: "",
+        type: "WebSite",
+      },
+      how_to_download: {
+        title: "How to Download Movies from MediPortal247 — Step-by-Step Guide",
+        desc: "Complete tutorial on how to download from Google Drive, bypass cloud links, extract multipart ZIP files, switch dual audio in VLC/MX Player, and add subtitles.",
+        url: "https://mediportal247.com › how-to-download",
+        rating: "4.9",
+        type: "HowTo",
+      },
+      request_movies: {
+        title: "Request Movies & Web Series — MediPortal247 Community",
+        desc: "Submit requests for missing Bollywood, Hollywood, South Dubbed movies or Web Series in 480p, 720p, 1080p, and 4K UHD. Get uploaded within 24 hours.",
+        url: "https://mediportal247.com › request-movies",
+        rating: "",
+        type: "WebPage",
+      },
+      about: {
+        title: "About Us — MediPortal247 | Movie & Web Series Search Engine",
+        desc: "Learn about MediPortal247, the premier high-speed catalogue indexing engine for Bollywood, Hollywood, Dual Audio movies and Web Series with Google Drive links.",
+        url: "https://mediportal247.com › about",
+        rating: "",
+        type: "AboutPage",
+      },
+      dmca: {
+        title: "DMCA Copyright Policy & Disclaimer — MediPortal247",
+        desc: "Official DMCA compliance and copyright infringement notification guidelines for MediPortal247. Fast 24-48 hour response for content copyright owners.",
+        url: "https://mediportal247.com › dmca",
+        rating: "",
+        type: "WebPage",
+      },
+    };
+
+    function updatePreview() {
+      const t = editTitle.value.trim();
+      const d = editDesc.value.trim();
+      const u = editUrl.value.trim();
+      const r = editRating.value.trim();
+
+      prevTitle.textContent = t || "Untitled Page — MediPortal247";
+      prevDesc.textContent = d || "No description provided.";
+      prevUrl.textContent = u || "https://mediportal247.com";
+
+      if (r) {
+        prevRichRow.hidden = false;
+        prevRating.textContent = `Rating: ${r}/10 · 24,190 votes`;
+      } else {
+        prevRichRow.hidden = true;
+      }
+
+      // Title Char Count & Meter
+      const tLen = t.length;
+      titleChar.textContent = `${tLen} / 60 chars`;
+      titleMeter.style.width = Math.min(100, (tLen / 60) * 100) + "%";
+      titleMeter.style.background = tLen > 65 ? "#ef4444" : tLen < 30 ? "#f59e0b" : "#10b981";
+
+      // Desc Char Count & Meter
+      const dLen = d.length;
+      descChar.textContent = `${dLen} / 160 chars`;
+      descMeter.style.width = Math.min(100, (dLen / 160) * 100) + "%";
+      descMeter.style.background = dLen > 160 ? "#ef4444" : dLen < 80 ? "#f59e0b" : "#10b981";
+
+      // Update Code Box
+      const presetKey = presetSelect.value;
+      const type = presets[presetKey] ? presets[presetKey].type : "WebPage";
+
+      const code = `<!-- Primary SEO Meta Tags -->
+<title>${escapeXml(t)}</title>
+<meta name="title" content="${escapeXml(t)}">
+<meta name="description" content="${escapeXml(d)}">
+<link rel="canonical" href="${escapeXml(u.replace(/ › /g, "/"))}">
+
+<!-- Open Graph / Facebook / Twitter -->
+<meta property="og:title" content="${escapeXml(t)}">
+<meta property="og:description" content="${escapeXml(d)}">
+<meta property="og:url" content="${escapeXml(u.replace(/ › /g, "/"))}">
+
+<!-- Schema.org Google SERP Rich Snippet -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "${type}",
+  "name": "${escapeXml(t)}",
+  "description": "${escapeXml(d)}"${r ? `,\n  "aggregateRating": {\n    "@type": "AggregateRating",\n    "ratingValue": "${r}",\n    "bestRating": "10",\n    "ratingCount": "24190"\n  }` : ""}
+}
+<\/script>`;
+
+      codeOutput.textContent = code;
+    }
+
+    function escapeXml(s) {
+      return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
+    // Event listeners
+    editTitle.addEventListener("input", updatePreview);
+    editDesc.addEventListener("input", updatePreview);
+    editUrl.addEventListener("input", updatePreview);
+    editRating.addEventListener("input", updatePreview);
+
+    presetSelect.addEventListener("change", () => {
+      const p = presets[presetSelect.value];
+      if (p) {
+        editTitle.value = p.title;
+        editDesc.value = p.desc;
+        editUrl.value = p.url;
+        editRating.value = p.rating;
+        updatePreview();
+      }
+    });
+
+    // View toggles
+    btnDesktop.addEventListener("click", () => {
+      btnDesktop.classList.add("active");
+      btnMobile.classList.remove("active");
+      previewWindow.classList.add("desktop-mode");
+      previewWindow.classList.remove("mobile-mode");
+    });
+
+    btnMobile.addEventListener("click", () => {
+      btnMobile.classList.add("active");
+      btnDesktop.classList.remove("active");
+      previewWindow.classList.add("mobile-mode");
+      previewWindow.classList.remove("desktop-mode");
+    });
+
+    // Copy code button
+    copyCodeBtn.addEventListener("click", () => {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(codeOutput.textContent).then(() => {
+          copyCodeBtn.textContent = "Copied! ✓";
+          setTimeout(() => (copyCodeBtn.textContent = "📋 Copy Code"), 2500);
+        });
+      }
+    });
+
+    // Initial run
+    updatePreview();
+  });
+</script>
+
+</body>
+</html>

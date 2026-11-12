@@ -5,3 +5,4 @@ requests>=2.31.0
 beautifulsoup4>=4.12.0
 waitress>=2.1.0
 gunicorn>=21.0.0
+Frozen-Flask>=1.0.2

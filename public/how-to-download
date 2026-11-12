@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070a13">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>How to Download Movies &amp; Series Tutorial | MediPortal247</title>
+  <meta name="title" content="How to Download Movies &amp; Series Tutorial | MediPortal247">
+  <meta name="description" content="Step-by-step guide on how to download movies from MediPortal247. Learn about Google Drive links, 1080p/4K tiers, IDM setup, and dual-audio subtitle playback.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="http://localhost/how-to-download">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost/how-to-download">
+  <meta property="og:title" content="How to Download Movies &amp; Series Tutorial | MediPortal247">
+  <meta property="og:description" content="Step-by-step guide on how to download movies from MediPortal247. Learn about Google Drive links, 1080p/4K tiers, IDM setup, and dual-audio subtitle playback.">
+  <meta property="og:image" content="http://localhost/static/og-banner.png">
+  <meta property="og:site_name" content="MediPortal247">
+
+  <!-- Twitter / X -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://localhost/how-to-download">
+  <meta property="twitter:title" content="How to Download Movies &amp; Series Tutorial | MediPortal247">
+  <meta property="twitter:description" content="Step-by-step guide on how to download movies from MediPortal247. Learn about Google Drive links, 1080p/4K tiers, IDM setup, and dual-audio subtitle playback.">
+  <meta property="twitter:image" content="http://localhost/static/og-banner.png">
+
+  <!-- JSON-LD Structured Data for Google SERP Rich Snippets -->
+  
+  <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "HowTo", "description": "Step-by-step guide on how to download movies from MediPortal247. Learn about Google Drive links, 1080p/4K tiers, IDM setup, and dual-audio subtitle playback.", "name": "How to Download Movies from MediPortal247", "step": [{"@type": "HowToStep", "name": "Find Your Movie", "text": "Use the search bar or category filters to select your desired title."}, {"@type": "HowToStep", "name": "Choose Video Resolution", "text": "Select from 480p, 720p, 1080p FHD, or 4K UHD based on your device."}, {"@type": "HowToStep", "name": "Click Download Server", "text": "Pick G-Drive Fast, Instant Cloud, or Direct Server for maximum speed."}, {"@type": "HowToStep", "name": "Enjoy Dual Audio Playback", "text": "Open in VLC or MX Player and switch Hindi/English tracks easily."}]}
+  </script>
+  
+
+  <!-- Fonts & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+
+  <script>
+    window.INITIAL_MOVIE_ID = null;
+    window.INITIAL_PAGE = null;
+    window.INITIAL_CATEGORY = null;
+    window.INITIAL_GENRE = null;
+    window.INITIAL_YEAR = null;
+  </script>
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <!-- Main Header & Navigation -->
+  <header class="topbar" id="main-header">
+    <div class="topbar-inner">
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <a class="brand" href="/" aria-label="MediPortal247 home">
+        <span class="brand-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm0 2v2h2V5H4zm16 0h-2v2h2V5zM4 9v2h2V9H4zm16 0h-2v2h2V9zM4 13v2h2v-2H4zm16 0h-2v2h2v-2zM4 17v2h2v-2H4zm16 0h-2v2h2v-2zM8 5h8v14H8V5z"/></svg>
+        </span>
+        <div class="brand-text">
+          <span class="brand-title">MEDIPORTAL<span class="brand-accent">247</span></span>
+          <span class="brand-sub">Movie &amp; Series Download Hub</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Bar -->
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a class="nav-link" href="/" data-category="all">🏠 Home</a>
+        <a class="nav-link" href="/?category=bollywood" data-category="bollywood">🇮🇳 Bollywood</a>
+        <a class="nav-link" href="/?category=hollywood" data-category="hollywood">🎬 Hollywood</a>
+        <a class="nav-link" href="/?category=dual-audio" data-category="dual-audio">🎧 Dual Audio</a>
+        <a class="nav-link" href="/?category=web-series" data-category="web-series">📺 Web Series</a>
+        <a class="nav-link" href="/?category=south-dubbed" data-category="south-dubbed">🌟 South Dubbed</a>
+        <a class="nav-link" href="/?category=4k" data-category="4k">⚡ 4K UHD</a>
+
+        <!-- Dropdowns -->
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger" type="button">🏷️ Genres <span class="arrow">▾</span></button>
+          <div class="dropdown-menu genres-dropdown" id="desktop-genres-dropdown">
+            <a href="/?genre=Action" data-genre="Action">Action</a>
+            <a href="/?genre=Adventure" data-genre="Adventure">Adventure</a>
+            <a href="/?genre=Animation" data-genre="Animation">Animation</a>
+            <a href="/?genre=Comedy" data-genre="Comedy">Comedy</a>
+            <a href="/?genre=Crime" data-genre="Crime">Crime</a>
+            <a href="/?genre=Drama" data-genre="Drama">Drama</a>
+            <a href="/?genre=Horror" data-genre="Horror">Horror</a>
+            <a href="/?genre=Mystery" data-genre="Mystery">Mystery</a>
+            <a href="/?genre=Romance" data-genre="Romance">Romance</a>
+            <a href="/?genre=Sci-Fi" data-genre="Sci-Fi">Sci-Fi</a>
+            <a href="/?genre=Thriller" data-genre="Thriller">Thriller</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger" type="button">📅 Years <span class="arrow">▾</span></button>
+          <div class="dropdown-menu years-dropdown" id="desktop-years-dropdown">
+            <a href="/?year=2026" data-year="2026">2026</a>
+            <a href="/?year=2025" data-year="2025">2025</a>
+            <a href="/?year=2024" data-year="2024">2024</a>
+            <a href="/?year=2023" data-year="2023">2023</a>
+            <a href="/?year=2022" data-year="2022">2022</a>
+            <a href="/?year=2021" data-year="2021">2021</a>
+            <a href="/?year=2020" data-year="2020">2020</a>
+            <a href="/?year=2010s" data-year="2010s">2010–2019</a>
+            <a href="/?year=2000s" data-year="2000s">2000–2009</a>
+            <a href="/?year=1990s" data-year="1990s">1990–1999</a>
+          </div>
+        </div>
+
+        <!-- Guides & Pages Dropdown -->
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger" type="button">📑 Pages <span class="arrow">▾</span></button>
+          <div class="dropdown-menu pages-dropdown">
+            <a href="/how-to-download">📖 How to Download</a>
+            <a href="/request-movies">📩 Request Movies</a>
+            <a href="/serp-preview">🔍 SERP Preview &amp; SEO</a>
+            <a href="/about">ℹ️ About Us</a>
+            <a href="/contact">📬 Contact Us</a>
+            <a href="/dmca">⚖️ DMCA Disclaimer</a>
+            <a href="/disclaimer">📜 Site Disclaimer</a>
+            <a href="/privacy-policy">🔒 Privacy Policy</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Instant Search in Topbar -->
+      <div class="header-search-wrap">
+        <form class="header-search-form" id="header-search-form" action="/" method="get">
+          <input
+            id="header-search-input"
+            name="q"
+            type="search"
+            placeholder="Search 16,850+ movies, series, cast…"
+            autocomplete="off"
+            spellcheck="false"
+            aria-label="Search movies and series"
+          >
+          <button class="search-submit-btn" type="submit" aria-label="Search">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </button>
+          <button class="search-clear-btn" id="header-search-clear" type="button" aria-label="Clear search" hidden>×</button>
+          <kbd class="search-shortcut" title="Press / to search">/</kbd>
+        </form>
+
+        <!-- Live Search Suggestions Popup -->
+        <div class="search-suggestions-box" id="search-suggestions" hidden>
+          <div class="suggestions-list" id="suggestions-list"></div>
+          <div class="suggestions-footer">
+            <span>Press <kbd>ENTER</kbd> for all results</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <span class="brand-title">MEDIPORTAL<span class="brand-accent">247</span></span>
+      </div>
+      <button class="drawer-close" id="drawer-close" type="button" aria-label="Close menu">✕</button>
+    </div>
+    <div class="drawer-content">
+      <div class="drawer-section">
+        <p class="drawer-heading">ESSENTIAL PAGES</p>
+        <div class="drawer-nav">
+          <a class="drawer-link" href="/how-to-download">📖 How to Download</a>
+          <a class="drawer-link" href="/request-movies">📩 Request Movies</a>
+          <a class="drawer-link" href="/serp-preview">🔍 SERP Preview &amp; SEO</a>
+          <a class="drawer-link" href="/about">ℹ️ About MediPortal247</a>
+          <a class="drawer-link" href="/contact">📬 Contact Us</a>
+          <a class="drawer-link" href="/dmca">⚖️ DMCA Disclaimer</a>
+          <a class="drawer-link" href="/disclaimer">📜 Site Disclaimer</a>
+          <a class="drawer-link" href="/privacy-policy">🔒 Privacy Policy</a>
+        </div>
+      </div>
+      <div class="drawer-section">
+        <p class="drawer-heading">CATEGORIES</p>
+        <div class="drawer-nav">
+          <a class="drawer-link" href="/?category=all" data-category="all">🔥 All Releases</a>
+          <a class="drawer-link" href="/?category=dual-audio" data-category="dual-audio">🎧 Dual Audio [Hindi-Eng]</a>
+          <a class="drawer-link" href="/?category=bollywood" data-category="bollywood">🇮🇳 Bollywood Movies</a>
+          <a class="drawer-link" href="/?category=hollywood" data-category="hollywood">🎬 Hollywood Movies</a>
+          <a class="drawer-link" href="/?category=web-series" data-category="web-series">📺 Web Series / TV Shows</a>
+          <a class="drawer-link" href="/?category=south-dubbed" data-category="south-dubbed">🌟 South Hindi Dubbed</a>
+          <a class="drawer-link" href="/?category=4k" data-category="4k">⚡ 4K Ultra HD</a>
+        </div>
+      </div>
+      <div class="drawer-section">
+        <p class="drawer-heading">POPULAR GENRES</p>
+        <div class="drawer-chips" id="drawer-genres-list"></div>
+      </div>
+      <div class="drawer-section">
+        <p class="drawer-heading">RELEASE YEARS</p>
+        <div class="drawer-chips" id="drawer-years-list"></div>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+  <!-- Main Content Body -->
+  <main>
+    
+<div class="content-page-wrap">
+  <!-- Page Hero Header -->
+  <header class="page-hero">
+    <div class="page-hero-badge">📖 TUTORIAL &amp; GUIDE</div>
+    <h1 class="page-hero-title">How to Download from MediPortal247</h1>
+    <p class="page-hero-desc">
+      A comprehensive step-by-step tutorial on downloading movies via Google Drive, Fast Cloud mirrors, switching Dual-Audio tracks, and enabling subtitles.
+    </p>
+  </header>
+
+  <!-- Step-by-Step Visual Cards -->
+  <div class="tutorial-steps-stack">
+    <!-- Step 1 -->
+    <div class="step-card">
+      <div class="step-badge">STEP 1</div>
+      <div class="step-content">
+        <h2 class="step-title">Select Your Desired Movie &amp; Quality Tier</h2>
+        <p class="step-desc">
+          Browse the catalogue or use the instant search bar to open your desired movie or series. In the details modal, scroll to the <strong>📥 DOWNLOAD LINKS</strong> section. Each release offers multiple quality options:
+        </p>
+        <div class="quality-explainer-grid">
+          <div class="quality-info-box">
+            <span class="q-badge badge-480p">480p SD</span>
+            <strong>300MB – 500MB</strong>
+            <p>Best for smartphones, small screens, and users saving mobile data.</p>
+          </div>
+          <div class="quality-info-box">
+            <span class="q-badge badge-720p">720p HD</span>
+            <strong>800MB – 1.4GB</strong>
+            <p>Crisp high-definition balance between file size and picture quality.</p>
+          </div>
+          <div class="quality-info-box">
+            <span class="q-badge badge-1080p">1080p FHD</span>
+            <strong>2.0GB – 3.5GB</strong>
+            <p>Full 1080p resolution with 5.1 surround sound audio. Perfect for laptops and TVs.</p>
+          </div>
+          <div class="quality-info-box">
+            <span class="q-badge badge-4k">4K UHD / HEVC</span>
+            <strong>4.0GB – 8.0GB</strong>
+            <p>Ultra High Definition (2160p) with 10-bit color depth for 4K Home Theaters.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-card">
+      <div class="step-badge">STEP 2</div>
+      <div class="step-content">
+        <h2 class="step-title">Choose the Fastest Download Server</h2>
+        <p class="step-desc">
+          Under your selected quality tier, you will find direct action buttons tailored to different needs:
+        </p>
+        <div class="server-buttons-explainer">
+          <div class="server-item">
+            <span class="dl-action-btn dl-btn-gdrive"><span>⚡</span> Google Drive</span>
+            <div class="server-text">
+              <strong>High-Speed Google Drive:</strong> Highest bandwidth, zero waiting queue, resume-supported. Click the button, log into Google if prompted, and click Download.
+            </div>
+          </div>
+          <div class="server-item">
+            <span class="dl-action-btn dl-btn-cloud"><span>☁️</span> Fast Cloud / Direct</span>
+            <div class="server-text">
+              <strong>Direct Cloud Mirror:</strong> Premium high-speed cloud mirrors with instant direct-link generation. No Google Drive quota limits.
+            </div>
+          </div>
+          <div class="server-item">
+            <span class="dl-action-btn dl-btn-mirror"><span>🔗</span> Download Links / Mirror</span>
+            <div class="server-text">
+              <strong>Multi-Server Mirrors:</strong> Backup mirror servers (HubCloud, Mega, SendCM). Use this if Google Drive is busy or quota is reached.
+            </div>
+          </div>
+          <div class="server-item">
+            <span class="dl-action-btn dl-btn-copy"><span>📋</span> Copy</span>
+            <div class="server-text">
+              <strong>One-Click Link Copy:</strong> Copies the raw link directly to your clipboard so you can paste it into download managers like IDM or 1DM.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-card">
+      <div class="step-badge">STEP 3</div>
+      <div class="step-content">
+        <h2 class="step-title">Use a Recommended Download Manager</h2>
+        <p class="step-desc">
+          Standard browser downloads may fail or cancel if your Wi-Fi briefly disconnects. We strongly recommend using dedicated download managers for multi-threaded, resume-supported downloads:
+        </p>
+        <div class="dm-recommend-grid">
+          <div class="dm-card">
+            <span class="dm-os">💻 Windows / Mac</span>
+            <h3>Internet Download Manager (IDM) or FDM</h3>
+            <p>Splits files into 16-32 threads, boosting download speeds by up to 500% and automatically resuming broken downloads.</p>
+          </div>
+          <div class="dm-card">
+            <span class="dm-os">📱 Android Mobile</span>
+            <h3>1DM (IDM Mobile) or ADM</h3>
+            <p>The #1 download manager for Android with built-in ad-blocking browser and pause/resume capabilities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step-card">
+      <div class="step-badge">STEP 4</div>
+      <div class="step-content">
+        <h2 class="step-title">How to Switch Dual-Audio &amp; Enable Subtitles</h2>
+        <p class="step-desc">
+          Most movies on MediPortal247 are encoded in the <strong>MKV container</strong> with multiple audio streams (e.g. Hindi + English) and softcoded subtitles:
+        </p>
+        <div class="playback-tutorial-box">
+          <div class="player-instruction">
+            <h3>🎧 On VLC Media Player (PC &amp; Mobile):</h3>
+            <ul>
+              <li><strong>Audio Language:</strong> Click <em>Audio &gt; Audio Track</em>, then select <em>Track 1 (Hindi)</em> or <em>Track 2 (English)</em>.</li>
+              <li><strong>Subtitles:</strong> Click <em>Subtitle &gt; Sub Track</em>, then select <em>English [eng]</em> or <em>Hindi [hin]</em>.</li>
+            </ul>
+          </div>
+          <div class="player-instruction">
+            <h3>🎧 On MX Player (Android):</h3>
+            <ul>
+              <li><strong>Audio Language:</strong> Tap the music icon <span class="badge badge-year">♪</span> in the top right corner and check your preferred language.</li>
+              <li><strong>Subtitles:</strong> Tap the three-dot menu &gt; <em>Subtitle &gt; Open</em> to toggle embedded ESub tracks.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Frequently Asked Questions (FAQ Accordion) -->
+  <section class="faq-section">
+    <div class="card-icon-title">
+      <span class="card-icon">❓</span>
+      <h2 class="card-title">Frequently Asked Questions &amp; Troubleshooting</h2>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary class="faq-question">Google Drive says "Download quota exceeded for this file". How to fix?</summary>
+        <div class="faq-answer">
+          <p>This is Google Drive's bandwidth security limit when thousands of users download the same file simultaneously. You have two easy solutions:</p>
+          <ol>
+            <li><strong>Use the "Fast Cloud" or "Download Links" button:</strong> These mirror servers do not have Google quota restrictions.</li>
+            <li><strong>Bypass on Google Drive:</strong> Click the three dots on the top right of Google Drive &gt; <em>Add shortcut to Drive</em> &gt; Open your own Google Drive &gt; Right-click the shortcut and select <em>Make a copy</em> &gt; Download the copy!</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">There is no sound / audio when playing the movie on my Smart TV or phone.</summary>
+        <div class="faq-answer">
+          <p>This happens when your default TV or phone media player does not support Dolby Digital (AC3, E-AC3, or DTS 5.1) codecs. Simply install <strong>VLC Media Player</strong> or <strong>Kodi</strong> on your Smart TV/Android device; VLC has built-in decoders for every audio codec.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">How do I download complete Web Series seasons at once?</summary>
+        <div class="faq-answer">
+          <p>For Web Series, we provide both <strong>Complete Season Zip Packs</strong> (one single archive containing all episodes) and individual episode links. Look for the tier labeled <em>[Complete Season 1 Zip Pack]</em> in the download section.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">The download says "File is in RAR or ZIP format". How do I extract it?</summary>
+        <div class="faq-answer">
+          <p>Download and install <strong>7-Zip</strong> or <strong>WinRAR</strong> on PC, or <strong>ZArchiver</strong> from the Google Play Store on Android. Right-click or tap the downloaded archive and select <em>Extract Here</em> to get the MKV video file.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Can I request a movie or web series that is not in the catalogue?</summary>
+        <div class="faq-answer">
+          <p>Yes! Visit our dedicated <a href="/request-movies" class="text-link">Movie Request Page</a>. Submit the title, release year, and desired audio/quality, and our team will add it within 24 hours.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- CTA Box -->
+  <div class="tutorial-cta-box">
+    <h3>Ready to Start Downloading?</h3>
+    <p>Explore over 16,850+ titles across Bollywood, Hollywood, Dual Audio, and Web Series.</p>
+    <div class="card-actions-row">
+      <a href="/" class="btn btn-primary">🔥 Go to Movie Catalogue</a>
+      <a href="/request-movies" class="btn btn-secondary">📩 Request a Movie</a>
+    </div>
+  </div>
+</div>
+
+  </main>
+
+  <!-- Screenshot Lightbox Modal -->
+  <dialog class="lightbox-modal" id="lightbox-modal" aria-label="Screenshot lightbox">
+    <button class="lightbox-close-btn" id="lightbox-close" type="button" aria-label="Close lightbox">✕</button>
+    <div class="lightbox-image-wrap">
+      <img id="lightbox-img" src="" alt="Movie Screenshot Preview">
+    </div>
+  </dialog>
+
+  <!-- Copy Alert Toast Notification -->
+  <div class="toast-notification" id="toast-notification" role="status" aria-live="polite" hidden>
+    <span class="toast-icon">✓</span>
+    <span class="toast-message" id="toast-message">Link copied to clipboard!</span>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col brand-col">
+        <div class="footer-brand">
+          <span class="brand-title">MEDIPORTAL<span class="brand-accent">247</span></span>
+          <span class="brand-sub">Movie &amp; Series Download Hub</span>
+        </div>
+        <p class="footer-desc">
+          Your #1 destination for Bollywood, Hollywood, Dual Audio Movies and Web Series. Featuring verified direct Google Drive and high-speed cloud mirrors.
+        </p>
+        <div class="library-counter-card">
+          <span class="counter-num" id="footer-total-count">16,851+</span>
+          <span class="counter-label">Total Movies &amp; Series in Database</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Fast Categories</h3>
+        <ul class="footer-links">
+          <li><a href="/?category=dual-audio" data-category="dual-audio">Dual Audio Movies</a></li>
+          <li><a href="/?category=bollywood" data-category="bollywood">Bollywood Movies</a></li>
+          <li><a href="/?category=hollywood" data-category="hollywood">Hollywood Hindi Dubbed</a></li>
+          <li><a href="/?category=web-series" data-category="web-series">Web Series &amp; TV Shows</a></li>
+          <li><a href="/?category=south-dubbed" data-category="south-dubbed">South Hindi Dubbed</a></li>
+          <li><a href="/?category=4k" data-category="4k">4K Ultra HD Movies</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Popular Qualities</h3>
+        <ul class="footer-links">
+          <li><a href="/?quality=1080p" data-quality="1080p">1080p Full HD Movies</a></li>
+          <li><a href="/?quality=720p" data-quality="720p">720p HD Movies</a></li>
+          <li><a href="/?quality=480p" data-quality="480p">480p Mobile Movies</a></li>
+          <li><a href="/?quality=hevc" data-quality="hevc">HEVC 10Bit Small Size</a></li>
+          <li><a href="/?quality=2160p" data-quality="2160p">2160p 4K UHD Movies</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Pages &amp; Legal</h3>
+        <ul class="footer-links">
+          <li><a href="/how-to-download">📖 How to Download</a></li>
+          <li><a href="/request-movies">📩 Request Movies</a></li>
+          <li><a href="/serp-preview">🔍 SERP Preview &amp; SEO</a></li>
+          <li><a href="/about">ℹ️ About Us</a></li>
+          <li><a href="/contact">📬 Contact Support</a></li>
+          <li><a href="/dmca">⚖️ DMCA Notice</a></li>
+          <li><a href="/disclaimer">📜 Legal Disclaimer</a></li>
+          <li><a href="/privacy-policy">🔒 Privacy Policy &amp; Terms</a></li>
+          <li><a href="/sitemap.xml" target="_blank">🗺️ XML Sitemap Index</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col full-width-disclaimer">
+        <h3 class="footer-heading">Disclaimer</h3>
+        <p class="footer-disclaimer">
+          MediPortal247 does not host any files on its servers. All files and links are indexed or provided by 3rd-party services. This portal operates strictly as a local search and catalogue indexing engine.
+        </p>
+        <span class="footer-copyright" id="footer-updated-at">Updated: Today</span>
+      </div>
+    </div>
+  </footer>
+
+  
+</body>
+</html>

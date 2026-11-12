@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070a13">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>About Us — MediPortal247 Movie &amp; Web Series Download Hub</title>
+  <meta name="title" content="About Us — MediPortal247 Movie &amp; Web Series Download Hub">
+  <meta name="description" content="Learn about MediPortal247, our mission, high-speed cloud download architecture, verified quality tiers (480p to 4K UHD), and movie indexing technology.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="http://localhost/about">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost/about">
+  <meta property="og:title" content="About Us — MediPortal247 Movie &amp; Web Series Download Hub">
+  <meta property="og:description" content="Learn about MediPortal247, our mission, high-speed cloud download architecture, verified quality tiers (480p to 4K UHD), and movie indexing technology.">
+  <meta property="og:image" content="http://localhost/static/og-banner.png">
+  <meta property="og:site_name" content="MediPortal247">
+
+  <!-- Twitter / X -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://localhost/about">
+  <meta property="twitter:title" content="About Us — MediPortal247 Movie &amp; Web Series Download Hub">
+  <meta property="twitter:description" content="Learn about MediPortal247, our mission, high-speed cloud download architecture, verified quality tiers (480p to 4K UHD), and movie indexing technology.">
+  <meta property="twitter:image" content="http://localhost/static/og-banner.png">
+
+  <!-- JSON-LD Structured Data for Google SERP Rich Snippets -->
+  
+  <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "AboutPage", "description": "Learn about MediPortal247, our mission, high-speed cloud download architecture, verified quality tiers (480p to 4K UHD), and movie indexing technology.", "name": "About Us \u2014 MediPortal247 Movie \u0026 Web Series Download Hub", "url": "http://localhost/about"}
+  </script>
+  
+
+  <!-- Fonts & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+
+  <script>
+    window.INITIAL_MOVIE_ID = null;
+    window.INITIAL_PAGE = null;
+    window.INITIAL_CATEGORY = null;
+    window.INITIAL_GENRE = null;
+    window.INITIAL_YEAR = null;
+  </script>
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <!-- Main Header & Navigation -->
+  <header class="topbar" id="main-header">
+    <div class="topbar-inner">
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <a class="brand" href="/" aria-label="MediPortal247 home">
+        <span class="brand-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm0 2v2h2V5H4zm16 0h-2v2h2V5zM4 9v2h2V9H4zm16 0h-2v2h2V9zM4 13v2h2v-2H4zm16 0h-2v2h2v-2zM4 17v2h2v-2H4zm16 0h-2v2h2v-2zM8 5h8v14H8V5z"/></svg>
+        </span>
+        <div class="brand-text">
+          <span class="brand-title">MEDIPORTAL<span class="brand-accent">247</span></span>
+          <span class="brand-sub">Movie &amp; Series Download Hub</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Bar -->
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a class="nav-link" href="/" data-category="all">🏠 Home</a>
+        <a class="nav-link" href="/?category=bollywood" data-category="bollywood">🇮🇳 Bollywood</a>
+        <a class="nav-link" href="/?category=hollywood" data-category="hollywood">🎬 Hollywood</a>
+        <a class="nav-link" href="/?category=dual-audio" data-category="dual-audio">🎧 Dual Audio</a>
+        <a class="nav-link" href="/?category=web-series" data-category="web-series">📺 Web Series</a>
+        <a class="nav-link" href="/?category=south-dubbed" data-category="south-dubbed">🌟 South Dubbed</a>
+        <a class="nav-link" href="/?category=4k" data-category="4k">⚡ 4K UHD</a>
+
+        <!-- Dropdowns -->
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger" type="button">🏷️ Genres <span class="arrow">▾</span></button>
+          <div class="dropdown-menu genres-dropdown" id="desktop-genres-dropdown">
+            <a href="/?genre=Action" data-genre="Action">Action</a>
+            <a href="/?genre=Adventure" data-genre="Adventure">Adventure</a>
+            <a href="/?genre=Animation" data-genre="Animation">Animation</a>
+            <a href="/?genre=Comedy" data-genre="Comedy">Comedy</a>
+            <a href="/?genre=Crime" data-genre="Crime">Crime</a>
+            <a href="/?genre=Drama" data-genre="Drama">Drama</a>
+            <a href="/?genre=Horror" data-genre="Horror">Horror</a>
+            <a href="/?genre=Mystery" data-genre="Mystery">Mystery</a>
+            <a href="/?genre=Romance" data-genre="Romance">Romance</a>
+            <a href="/?genre=Sci-Fi" data-genre="Sci-Fi">Sci-Fi</a>
+            <a href="/?genre=Thriller" data-genre="Thriller">Thriller</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger" type="button">📅 Years <span class="arrow">▾</span></button>
+          <div class="dropdown-menu years-dropdown" id="desktop-years-dropdown">
+            <a href="/?year=2026" data-year="2026">2026</a>
+            <a href="/?year=2025" data-year="2025">2025</a>
+            <a href="/?year=2024" data-year="2024">2024</a>
+            <a href="/?year=2023" data-year="2023">2023</a>
+            <a href="/?year=2022" data-year="2022">2022</a>
+            <a href="/?year=2021" data-year="2021">2021</a>
+            <a href="/?year=2020" data-year="2020">2020</a>
+            <a href="/?year=2010s" data-year="2010s">2010–2019</a>
+            <a href="/?year=2000s" data-year="2000s">2000–2009</a>
+            <a href="/?year=1990s" data-year="1990s">1990–1999</a>
+          </div>
+        </div>
+
+        <!-- Guides & Pages Dropdown -->
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger" type="button">📑 Pages <span class="arrow">▾</span></button>
+          <div class="dropdown-menu pages-dropdown">
+            <a href="/how-to-download">📖 How to Download</a>
+            <a href="/request-movies">📩 Request Movies</a>
+            <a href="/serp-preview">🔍 SERP Preview &amp; SEO</a>
+            <a href="/about">ℹ️ About Us</a>
+            <a href="/contact">📬 Contact Us</a>
+            <a href="/dmca">⚖️ DMCA Disclaimer</a>
+            <a href="/disclaimer">📜 Site Disclaimer</a>
+            <a href="/privacy-policy">🔒 Privacy Policy</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Instant Search in Topbar -->
+      <div class="header-search-wrap">
+        <form class="header-search-form" id="header-search-form" action="/" method="get">
+          <input
+            id="header-search-input"
+            name="q"
+            type="search"
+            placeholder="Search 16,850+ movies, series, cast…"
+            autocomplete="off"
+            spellcheck="false"
+            aria-label="Search movies and series"
+          >
+          <button class="search-submit-btn" type="submit" aria-label="Search">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </button>
+          <button class="search-clear-btn" id="header-search-clear" type="button" aria-label="Clear search" hidden>×</button>
+          <kbd class="search-shortcut" title="Press / to search">/</kbd>
+        </form>
+
+        <!-- Live Search Suggestions Popup -->
+        <div class="search-suggestions-box" id="search-suggestions" hidden>
+          <div class="suggestions-list" id="suggestions-list"></div>
+          <div class="suggestions-footer">
+            <span>Press <kbd>ENTER</kbd> for all results</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <span class="brand-title">MEDIPORTAL<span class="brand-accent">247</span></span>
+      </div>
+      <button class="drawer-close" id="drawer-close" type="button" aria-label="Close menu">✕</button>
+    </div>
+    <div class="drawer-content">
+      <div class="drawer-section">
+        <p class="drawer-heading">ESSENTIAL PAGES</p>
+        <div class="drawer-nav">
+          <a class="drawer-link" href="/how-to-download">📖 How to Download</a>
+          <a class="drawer-link" href="/request-movies">📩 Request Movies</a>
+          <a class="drawer-link" href="/serp-preview">🔍 SERP Preview &amp; SEO</a>
+          <a class="drawer-link" href="/about">ℹ️ About MediPortal247</a>
+          <a class="drawer-link" href="/contact">📬 Contact Us</a>
+          <a class="drawer-link" href="/dmca">⚖️ DMCA Disclaimer</a>
+          <a class="drawer-link" href="/disclaimer">📜 Site Disclaimer</a>
+          <a class="drawer-link" href="/privacy-policy">🔒 Privacy Policy</a>
+        </div>
+      </div>
+      <div class="drawer-section">
+        <p class="drawer-heading">CATEGORIES</p>
+        <div class="drawer-nav">
+          <a class="drawer-link" href="/?category=all" data-category="all">🔥 All Releases</a>
+          <a class="drawer-link" href="/?category=dual-audio" data-category="dual-audio">🎧 Dual Audio [Hindi-Eng]</a>
+          <a class="drawer-link" href="/?category=bollywood" data-category="bollywood">🇮🇳 Bollywood Movies</a>
+          <a class="drawer-link" href="/?category=hollywood" data-category="hollywood">🎬 Hollywood Movies</a>
+          <a class="drawer-link" href="/?category=web-series" data-category="web-series">📺 Web Series / TV Shows</a>
+          <a class="drawer-link" href="/?category=south-dubbed" data-category="south-dubbed">🌟 South Hindi Dubbed</a>
+          <a class="drawer-link" href="/?category=4k" data-category="4k">⚡ 4K Ultra HD</a>
+        </div>
+      </div>
+      <div class="drawer-section">
+        <p class="drawer-heading">POPULAR GENRES</p>
+        <div class="drawer-chips" id="drawer-genres-list"></div>
+      </div>
+      <div class="drawer-section">
+        <p class="drawer-heading">RELEASE YEARS</p>
+        <div class="drawer-chips" id="drawer-years-list"></div>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+  <!-- Main Content Body -->
+  <main>
+    
+<div class="content-page-wrap">
+  <!-- Page Hero Header -->
+  <header class="page-hero">
+    <div class="page-hero-badge">ℹ️ ABOUT MEDIPORTAL247</div>
+    <h1 class="page-hero-title">Your Ultra-Fast Movie &amp; Series Discovery Engine</h1>
+    <p class="page-hero-desc">
+      Inspired by premier streaming and download portals like BollyFlix, VegaMovies, and Movies4u. Built for cinema enthusiasts seeking verified, high-speed direct downloads without the hassle.
+    </p>
+  </header>
+
+  <!-- Platform Stats Strip -->
+  <div class="stats-strip-grid">
+    <div class="stat-card">
+      <span class="stat-num">16,850+</span>
+      <span class="stat-label">Movies &amp; Series</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num">17,380+</span>
+      <span class="stat-label">Local High-Res Posters</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num">4</span>
+      <span class="stat-label">Quality Tiers (480p to 4K)</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">Verified Fast Cloud Mirrors</span>
+    </div>
+  </div>
+
+  <!-- Main Content Cards -->
+  <div class="content-cards-stack">
+    <!-- Story Card -->
+    <article class="content-card">
+      <div class="card-icon-title">
+        <span class="card-icon">🎬</span>
+        <h2 class="card-title">Our Story &amp; Philosophy</h2>
+      </div>
+      <div class="card-text">
+        <p>
+          <strong>MediPortal247</strong> was conceived with a single, uncompromising vision: to create the fastest, cleanest, and most accessible movie discovery and catalogue index on the web. Finding verified download links for regional cinema, Bollywood blockbusters, Hollywood dual-audio releases, and South-dubbed gems often meant navigating through slow, confusing ad-traps.
+        </p>
+        <p>
+          Taking direct design inspiration from legendary movie hubs like <strong>BollyFlix</strong>, <strong>VegaMovies</strong>, and <strong>Movies4u</strong>, we re-engineered the experience from the ground up: a dark cinematic UI, instant real-time search, zero page clutter, and transparent technical specifications for every film.
+        </p>
+      </div>
+    </article>
+
+    <!-- Key Features Grid -->
+    <article class="content-card">
+      <div class="card-icon-title">
+        <span class="card-icon">⚡</span>
+        <h2 class="card-title">What Makes MediPortal247 Different?</h2>
+      </div>
+      <div class="features-2col-grid">
+        <div class="feature-box">
+          <div class="feature-icon">🚀</div>
+          <div class="feature-details">
+            <h3>Ultra-Fast Google Drive &amp; Cloud Mirrors</h3>
+            <p>Every title provides high-speed Google Drive and multi-cloud mirrors so you can download at maximum bandwidth without speed throttling.</p>
+          </div>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon">🎧</div>
+          <div class="feature-details">
+            <h3>Dual &amp; Multi-Audio Library</h3>
+            <p>Over 8,700+ titles feature Hindi-English dual audio, multi-language South dubbed tracks (Tamil, Telugu, Kannada, Malayalam), and original Dolby 5.1 tracks.</p>
+          </div>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon">💎</div>
+          <div class="feature-details">
+            <h3>Every Quality Tier Supported</h3>
+            <p>From data-friendly 480p SD (300MB) for mobile screens, to 720p HD and 1080p FHD, up to breathtaking 4K UHD 2160p and space-saving 10-Bit HEVC encodes.</p>
+          </div>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon">💬</div>
+          <div class="feature-details">
+            <h3>Pre-Synced ESub &amp; MSub Subtitles</h3>
+            <p>English and Hindi subtitles come embedded in MKV containers with sample screenshots provided so you can verify subtitle and video quality beforehand.</p>
+          </div>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon">🔍</div>
+          <div class="feature-details">
+            <h3>Instant Autocomplete Search</h3>
+            <p>Find any movie by actor, director, genre, or release year in less than 10 milliseconds using our pre-indexed in-memory catalogue.</p>
+          </div>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon">📱</div>
+          <div class="feature-details">
+            <h3>Fully Mobile-Responsive Experience</h3>
+            <p>Engineered for seamless one-handed browsing on smartphones, tablets, and desktop setups with a dedicated mobile slide-out drawer.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Technical Infrastructure Card -->
+    <article class="content-card">
+      <div class="card-icon-title">
+        <span class="card-icon">🛠️</span>
+        <h2 class="card-title">Architecture &amp; Data Pipeline</h2>
+      </div>
+      <div class="card-text">
+        <p>
+          MediPortal247 operates on a high-concurrency Python/Flask backend backed by a multi-tier memory caching system. Rather than burdening visitors with heavy external hotlinking, over <strong>17,380+ high-resolution posters</strong> are stored and served locally with aggressive HTTP caching (<code>max-age=86400</code>).
+        </p>
+        <p>
+          The catalogue regularly syncs with primary archive checkpoints, ensuring all download links, mirrors, and technical metadata remain fresh and accessible around the clock.
+        </p>
+      </div>
+    </article>
+
+    <!-- Safe Browsing & Advisory -->
+    <article class="content-card highlight-card">
+      <div class="card-icon-title">
+        <span class="card-icon">🛡️</span>
+        <h2 class="card-title">Safe Browsing &amp; Recommendations</h2>
+      </div>
+      <div class="card-text">
+        <p>
+          To enjoy seamless playback of dual-audio tracks and MKV subtitle streams, we strongly recommend using <strong>VLC Media Player</strong> or <strong>PotPlayer</strong> on PC, and <strong>VLC for Android</strong> or <strong>MX Player</strong> on mobile devices.
+        </p>
+        <p>
+          Need help navigating cloud link mirrors? Visit our visual <a href="/how-to-download" class="text-link">How to Download Tutorial</a> for step-by-step instructions.
+        </p>
+      </div>
+      <div class="card-actions-row">
+        <a href="/" class="btn btn-primary">🔥 Browse Latest Movies</a>
+        <a href="/how-to-download" class="btn btn-secondary">📖 How to Download Guide</a>
+        <a href="/request-movies" class="btn btn-secondary">📩 Request a Movie</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+  </main>
+
+  <!-- Screenshot Lightbox Modal -->
+  <dialog class="lightbox-modal" id="lightbox-modal" aria-label="Screenshot lightbox">
+    <button class="lightbox-close-btn" id="lightbox-close" type="button" aria-label="Close lightbox">✕</button>
+    <div class="lightbox-image-wrap">
+      <img id="lightbox-img" src="" alt="Movie Screenshot Preview">
+    </div>
+  </dialog>
+
+  <!-- Copy Alert Toast Notification -->
+  <div class="toast-notification" id="toast-notification" role="status" aria-live="polite" hidden>
+    <span class="toast-icon">✓</span>
+    <span class="toast-message" id="toast-message">Link copied to clipboard!</span>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col brand-col">
+        <div class="footer-brand">
+          <span class="brand-title">MEDIPORTAL<span class="brand-accent">247</span></span>
+          <span class="brand-sub">Movie &amp; Series Download Hub</span>
+        </div>
+        <p class="footer-desc">
+          Your #1 destination for Bollywood, Hollywood, Dual Audio Movies and Web Series. Featuring verified direct Google Drive and high-speed cloud mirrors.
+        </p>
+        <div class="library-counter-card">
+          <span class="counter-num" id="footer-total-count">16,851+</span>
+          <span class="counter-label">Total Movies &amp; Series in Database</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Fast Categories</h3>
+        <ul class="footer-links">
+          <li><a href="/?category=dual-audio" data-category="dual-audio">Dual Audio Movies</a></li>
+          <li><a href="/?category=bollywood" data-category="bollywood">Bollywood Movies</a></li>
+          <li><a href="/?category=hollywood" data-category="hollywood">Hollywood Hindi Dubbed</a></li>
+          <li><a href="/?category=web-series" data-category="web-series">Web Series &amp; TV Shows</a></li>
+          <li><a href="/?category=south-dubbed" data-category="south-dubbed">South Hindi Dubbed</a></li>
+          <li><a href="/?category=4k" data-category="4k">4K Ultra HD Movies</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Popular Qualities</h3>
+        <ul class="footer-links">
+          <li><a href="/?quality=1080p" data-quality="1080p">1080p Full HD Movies</a></li>
+          <li><a href="/?quality=720p" data-quality="720p">720p HD Movies</a></li>
+          <li><a href="/?quality=480p" data-quality="480p">480p Mobile Movies</a></li>
+          <li><a href="/?quality=hevc" data-quality="hevc">HEVC 10Bit Small Size</a></li>
+          <li><a href="/?quality=2160p" data-quality="2160p">2160p 4K UHD Movies</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Pages &amp; Legal</h3>
+        <ul class="footer-links">
+          <li><a href="/how-to-download">📖 How to Download</a></li>
+          <li><a href="/request-movies">📩 Request Movies</a></li>
+          <li><a href="/serp-preview">🔍 SERP Preview &amp; SEO</a></li>
+          <li><a href="/about">ℹ️ About Us</a></li>
+          <li><a href="/contact">📬 Contact Support</a></li>
+          <li><a href="/dmca">⚖️ DMCA Notice</a></li>
+          <li><a href="/disclaimer">📜 Legal Disclaimer</a></li>
+          <li><a href="/privacy-policy">🔒 Privacy Policy &amp; Terms</a></li>
+          <li><a href="/sitemap.xml" target="_blank">🗺️ XML Sitemap Index</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col full-width-disclaimer">
+        <h3 class="footer-heading">Disclaimer</h3>
+        <p class="footer-disclaimer">
+          MediPortal247 does not host any files on its servers. All files and links are indexed or provided by 3rd-party services. This portal operates strictly as a local search and catalogue indexing engine.
+        </p>
+        <span class="footer-copyright" id="footer-updated-at">Updated: Today</span>
+      </div>
+    </div>
+  </footer>
+
+  
+</body>
+</html>
