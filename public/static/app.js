@@ -1668,6 +1668,48 @@
     if (state.activeMovieId) {
       openMovieDetails(state.activeMovieId);
     }
+
+    // Telegram first-visit popup handler
+    initTelegramPopup();
+  }
+
+  function initTelegramPopup() {
+    const overlay = document.getElementById("tg-popup-overlay");
+    const closeBtn = document.getElementById("tg-popup-close");
+    const dismissBtn = document.getElementById("tg-popup-dismiss");
+
+    if (!overlay) return;
+
+    // Check if dismissed previously within the last 24 hours
+    const dismissedTime = localStorage.getItem("mediportal_tg_dismissed");
+    const now = Date.now();
+    const ONE_DAY = 24 * 60 * 60 * 1000;
+
+    if (!dismissedTime || now - parseInt(dismissedTime, 10) > ONE_DAY) {
+      // Small timeout so user lands and visualizes page first before smooth popup
+      window.setTimeout(() => {
+        overlay.hidden = false;
+        overlay.classList.add("tg-popup-visible");
+      }, 1000);
+    }
+
+    function dismissPopup() {
+      overlay.classList.remove("tg-popup-visible");
+      window.setTimeout(() => {
+        overlay.hidden = true;
+      }, 250);
+      try {
+        localStorage.setItem("mediportal_tg_dismissed", String(Date.now()));
+      } catch (e) {
+        // Ignore localStorage quota/permission issues
+      }
+    }
+
+    if (closeBtn) closeBtn.addEventListener("click", dismissPopup);
+    if (dismissBtn) dismissBtn.addEventListener("click", dismissPopup);
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) dismissPopup();
+    });
   }
 
   // Run on DOM ready

@@ -10,27 +10,27 @@
   <meta name="title" content="Page 8 — Download Latest Movies &amp; Web Series | MediPortal247">
   <meta name="description" content="Explore page 8 of 16,850+ Movies and Web Series on MediPortal247. Download Bollywood, Hollywood and Dual Audio in 480p, 720p, 1080p and 4K.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <link rel="canonical" href="http://localhost/page/8">
+  <link rel="canonical" href="https://mediportal247.online/page/8">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="http://localhost/page/8">
+  <meta property="og:url" content="https://mediportal247.online/page/8">
   <meta property="og:title" content="Page 8 — Download Latest Movies &amp; Web Series | MediPortal247">
   <meta property="og:description" content="Explore page 8 of 16,850+ Movies and Web Series on MediPortal247. Download Bollywood, Hollywood and Dual Audio in 480p, 720p, 1080p and 4K.">
-  <meta property="og:image" content="http://localhost/static/og-banner.png">
+  <meta property="og:image" content="https://mediportal247.online/static/og-banner.png">
   <meta property="og:site_name" content="MediPortal247">
 
   <!-- Twitter / X -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="http://localhost/page/8">
+  <meta property="twitter:url" content="https://mediportal247.online/page/8">
   <meta property="twitter:title" content="Page 8 — Download Latest Movies &amp; Web Series | MediPortal247">
   <meta property="twitter:description" content="Explore page 8 of 16,850+ Movies and Web Series on MediPortal247. Download Bollywood, Hollywood and Dual Audio in 480p, 720p, 1080p and 4K.">
-  <meta property="twitter:image" content="http://localhost/static/og-banner.png">
+  <meta property="twitter:image" content="https://mediportal247.online/static/og-banner.png">
 
   <!-- JSON-LD Structured Data for Google SERP Rich Snippets -->
   
   <script type="application/ld+json">
-    {"@context": "https://schema.org", "@type": "WebPage", "description": "Explore page 8 of 16,850+ Movies and Web Series on MediPortal247. Download Bollywood, Hollywood and Dual Audio in 480p, 720p, 1080p and 4K.", "name": "Page 8 \u2014 Download Latest Movies \u0026 Web Series | MediPortal247", "url": "http://localhost/page/8"}
+    {"@context": "https://schema.org", "@type": "WebPage", "description": "Explore page 8 of 16,850+ Movies and Web Series on MediPortal247. Download Bollywood, Hollywood and Dual Audio in 480p, 720p, 1080p and 4K.", "name": "Page 8 \u2014 Download Latest Movies \u0026 Web Series | MediPortal247", "url": "https://mediportal247.online/page/8"}
   </script>
   
 
@@ -67,6 +67,12 @@
           <span class="brand-title">MEDIPORTAL<span class="brand-accent">247</span></span>
           <span class="brand-sub">Movie &amp; Series Download Hub</span>
         </div>
+      </a>
+
+      <!-- Telegram Header Button (Right side of Logo/Name) -->
+      <a class="tg-header-btn" href="https://t.me/Mediportal247" target="_blank" rel="noopener noreferrer" title="Join our Official Telegram Channel">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+        <span>Join Telegram</span>
       </a>
 
       <!-- Desktop Navigation Bar -->
@@ -159,6 +165,23 @@
     </div>
   </header>
 
+  <!-- Telegram Join Popup Modal -->
+  <div class="tg-popup-overlay" id="tg-popup-overlay" hidden>
+    <div class="tg-popup-content">
+      <button class="tg-popup-close" id="tg-popup-close" type="button" aria-label="Close Telegram pop-up">✕</button>
+      <div class="tg-popup-icon">
+        <svg viewBox="0 0 24 24" width="48" height="48" fill="#0088cc"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+      </div>
+      <h3 class="tg-popup-title">Join Our Official Telegram!</h3>
+      <p class="tg-popup-desc">Get instant updates for new movies, web series, 4K releases, and fast direct download links.</p>
+      <a class="tg-popup-btn" href="https://t.me/Mediportal247" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+        <span>Join @Mediportal247</span>
+      </a>
+      <button class="tg-popup-dismiss" id="tg-popup-dismiss" type="button">Maybe Later</button>
+    </div>
+  </div>
+
   <!-- Mobile Drawer Menu -->
   <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
     <div class="drawer-header">
@@ -168,6 +191,12 @@
       <button class="drawer-close" id="drawer-close" type="button" aria-label="Close menu">✕</button>
     </div>
     <div class="drawer-content">
+      <div class="drawer-section">
+        <a class="drawer-tg-btn" href="https://t.me/Mediportal247" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+          <span>Join Official Telegram Channel</span>
+        </a>
+      </div>
       <div class="drawer-section">
         <p class="drawer-heading">ESSENTIAL PAGES</p>
         <div class="drawer-nav">
@@ -267,104 +296,37 @@
     </div>
   </div>
 
-  <!-- Advanced Filter & Search Toolbar -->
-  <div class="filter-toolbar" id="filter-toolbar">
-    <div class="toolbar-grid">
-      <!-- Keyword Search -->
-      <div class="filter-field search-field">
-        <label for="filter-search-input" class="field-label">Quick Search</label>
-        <div class="input-wrap">
-          <span class="input-icon">🔍</span>
-          <input id="filter-search-input" type="search" placeholder="Type title, actor, director…" autocomplete="off">
-        </div>
-      </div>
-
-      <!-- Category Selector -->
-      <div class="filter-field">
-        <label for="category-select" class="field-label">Category</label>
-        <select id="category-select">
-          <option value="all">All Categories</option>
-          <option value="dual-audio">Dual Audio [Hindi-Eng]</option>
-          <option value="bollywood">Bollywood (Hindi)</option>
-          <option value="hollywood">Hollywood (English)</option>
-          <option value="web-series">Web Series / TV Shows</option>
-          <option value="south-dubbed">South Hindi Dubbed</option>
-          <option value="4k">4K Ultra HD</option>
-        </select>
-      </div>
-
-      <!-- Language Selector -->
-      <div class="filter-field">
-        <label for="language-select" class="field-label">Language / Audio</label>
-        <select id="language-select">
-          <option value="">All Languages</option>
-        </select>
-      </div>
-
-      <!-- Genre Selector -->
-      <div class="filter-field">
-        <label for="genre-select" class="field-label">Genre</label>
-        <select id="genre-select">
-          <option value="">All Genres</option>
-        </select>
-      </div>
-
-      <!-- Quality Selector -->
-      <div class="filter-field">
-        <label for="quality-select" class="field-label">Quality</label>
-        <select id="quality-select">
-          <option value="">All Qualities</option>
-          <option value="480p">480p SD (Mobile)</option>
-          <option value="720p">720p HD</option>
-          <option value="1080p">1080p Full HD</option>
-          <option value="2160p">2160p 4K UHD</option>
-          <option value="hevc">HEVC / 10Bit</option>
-        </select>
-      </div>
-
-      <!-- Release Year Selector -->
-      <div class="filter-field">
-        <label for="year-select" class="field-label">Release Year</label>
-        <select id="year-select">
-          <option value="">All Years</option>
-          <option value="2026">2026</option>
-          <option value="2025">2025</option>
-          <option value="2024">2024</option>
-          <option value="2023">2023</option>
-          <option value="2022">2022</option>
-          <option value="2021">2021</option>
-          <option value="2020">2020</option>
-          <option value="2010s">2010–2019</option>
-          <option value="2000s">2000–2009</option>
-          <option value="1990s">1990–1999</option>
-          <option value="classic">Classics (&lt; 1990)</option>
-        </select>
-      </div>
-
-      <!-- Sort Selector -->
-      <div class="filter-field">
-        <label for="sort-select" class="field-label">Sort By</label>
-        <select id="sort-select">
-          <option value="newest">Recent &amp; Top Rated (Featured)</option>
-          <option value="rating">Top IMDb Rating ★</option>
-          <option value="year">Release Year (Newest)</option>
-          <option value="title">Title (A to Z)</option>
-        </select>
-      </div>
-
-      <!-- Reset Button -->
-      <div class="filter-field button-field">
-        <button class="reset-filters-btn" id="reset-filters-btn" type="button">
-          <span>↻</span> Reset Filters
-        </button>
-      </div>
+  <!-- Quick Search Section (VegaMovies / BollyFlix Style) -->
+  <div class="home-search-section">
+    <div class="home-search-wrap">
+      <form class="home-search-form" id="home-search-form" action="/" method="get">
+        <span class="home-search-icon">🔍</span>
+        <input
+          id="filter-search-input"
+          name="q"
+          type="search"
+          placeholder="Search 16,850+ movies, web series, Bollywood, Hollywood, Dual Audio…"
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Search movies catalog"
+        >
+        <button class="home-search-submit" type="submit">Search</button>
+      </form>
     </div>
 
-    <!-- Active Filter Tags Row -->
-    <div class="active-tags-row" id="active-tags-row" hidden>
-      <span class="active-tags-label">Active Filters:</span>
-      <div class="tags-container" id="tags-container"></div>
-      <button class="clear-all-tags-btn" id="clear-all-tags-btn" type="button">Clear All</button>
+    <!-- Hidden Filter inputs to maintain JS compatibility without cluttering UI -->
+    <div style="display: none;" id="hidden-filter-controls">
+      <select id="category-select"><option value="all">All</option></select>
+      <select id="language-select"><option value="">All</option></select>
+      <select id="genre-select"><option value="">All</option></select>
+      <select id="quality-select"><option value="">All</option></select>
+      <select id="year-select"><option value="">All</option></select>
+      <select id="sort-select"><option value="newest">Newest</option></select>
+      <button id="reset-filters-btn" type="button"></button>
+      <div id="active-tags-row" hidden>
+        <div id="tags-container"></div>
+        <button id="clear-all-tags-btn" type="button"></button>
+      </div>
     </div>
   </div>
 
@@ -584,8 +546,9 @@
       </div>
 
       <div class="footer-col">
-        <h3 class="footer-heading">Pages &amp; Legal</h3>
+        <h3 class="footer-heading">Pages &amp; Community</h3>
         <ul class="footer-links">
+          <li><a href="https://t.me/Mediportal247" target="_blank" rel="noopener noreferrer" style="color: #00e5ff; font-weight: 700;">✈️ Join Telegram Channel</a></li>
           <li><a href="/how-to-download">📖 How to Download</a></li>
           <li><a href="/request-movies">📩 Request Movies</a></li>
           <li><a href="/serp-preview">🔍 SERP Preview &amp; SEO</a></li>

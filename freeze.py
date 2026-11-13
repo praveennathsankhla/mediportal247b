@@ -7,6 +7,9 @@ import webapp
 
 BUILD_DIR = Path(__file__).resolve().parent / "public"
 
+webapp.SITE_DOMAIN = "https://mediportal247.online"
+webapp.app.config["SERVER_NAME"] = "mediportal247.online"
+webapp.app.config["PREFERRED_URL_SCHEME"] = "https"
 webapp.app.config["FREEZER_DESTINATION"] = str(BUILD_DIR)
 webapp.app.config["FREEZER_REMOVE_EXTRA_FILES"] = False
 webapp.app.config["FREEZER_IGNORE_MIMETYPE_WARNINGS"] = True

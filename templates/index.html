@@ -60,104 +60,37 @@
     </div>
   </div>
 
-  <!-- Advanced Filter & Search Toolbar -->
-  <div class="filter-toolbar" id="filter-toolbar">
-    <div class="toolbar-grid">
-      <!-- Keyword Search -->
-      <div class="filter-field search-field">
-        <label for="filter-search-input" class="field-label">Quick Search</label>
-        <div class="input-wrap">
-          <span class="input-icon">🔍</span>
-          <input id="filter-search-input" type="search" placeholder="Type title, actor, director…" autocomplete="off">
-        </div>
-      </div>
-
-      <!-- Category Selector -->
-      <div class="filter-field">
-        <label for="category-select" class="field-label">Category</label>
-        <select id="category-select">
-          <option value="all">All Categories</option>
-          <option value="dual-audio">Dual Audio [Hindi-Eng]</option>
-          <option value="bollywood">Bollywood (Hindi)</option>
-          <option value="hollywood">Hollywood (English)</option>
-          <option value="web-series">Web Series / TV Shows</option>
-          <option value="south-dubbed">South Hindi Dubbed</option>
-          <option value="4k">4K Ultra HD</option>
-        </select>
-      </div>
-
-      <!-- Language Selector -->
-      <div class="filter-field">
-        <label for="language-select" class="field-label">Language / Audio</label>
-        <select id="language-select">
-          <option value="">All Languages</option>
-        </select>
-      </div>
-
-      <!-- Genre Selector -->
-      <div class="filter-field">
-        <label for="genre-select" class="field-label">Genre</label>
-        <select id="genre-select">
-          <option value="">All Genres</option>
-        </select>
-      </div>
-
-      <!-- Quality Selector -->
-      <div class="filter-field">
-        <label for="quality-select" class="field-label">Quality</label>
-        <select id="quality-select">
-          <option value="">All Qualities</option>
-          <option value="480p">480p SD (Mobile)</option>
-          <option value="720p">720p HD</option>
-          <option value="1080p">1080p Full HD</option>
-          <option value="2160p">2160p 4K UHD</option>
-          <option value="hevc">HEVC / 10Bit</option>
-        </select>
-      </div>
-
-      <!-- Release Year Selector -->
-      <div class="filter-field">
-        <label for="year-select" class="field-label">Release Year</label>
-        <select id="year-select">
-          <option value="">All Years</option>
-          <option value="2026">2026</option>
-          <option value="2025">2025</option>
-          <option value="2024">2024</option>
-          <option value="2023">2023</option>
-          <option value="2022">2022</option>
-          <option value="2021">2021</option>
-          <option value="2020">2020</option>
-          <option value="2010s">2010–2019</option>
-          <option value="2000s">2000–2009</option>
-          <option value="1990s">1990–1999</option>
-          <option value="classic">Classics (&lt; 1990)</option>
-        </select>
-      </div>
-
-      <!-- Sort Selector -->
-      <div class="filter-field">
-        <label for="sort-select" class="field-label">Sort By</label>
-        <select id="sort-select">
-          <option value="newest">Recent &amp; Top Rated (Featured)</option>
-          <option value="rating">Top IMDb Rating ★</option>
-          <option value="year">Release Year (Newest)</option>
-          <option value="title">Title (A to Z)</option>
-        </select>
-      </div>
-
-      <!-- Reset Button -->
-      <div class="filter-field button-field">
-        <button class="reset-filters-btn" id="reset-filters-btn" type="button">
-          <span>↻</span> Reset Filters
-        </button>
-      </div>
+  <!-- Quick Search Section (VegaMovies / BollyFlix Style) -->
+  <div class="home-search-section">
+    <div class="home-search-wrap">
+      <form class="home-search-form" id="home-search-form" action="/" method="get">
+        <span class="home-search-icon">🔍</span>
+        <input
+          id="filter-search-input"
+          name="q"
+          type="search"
+          placeholder="Search 16,850+ movies, web series, Bollywood, Hollywood, Dual Audio…"
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Search movies catalog"
+        >
+        <button class="home-search-submit" type="submit">Search</button>
+      </form>
     </div>
 
-    <!-- Active Filter Tags Row -->
-    <div class="active-tags-row" id="active-tags-row" hidden>
-      <span class="active-tags-label">Active Filters:</span>
-      <div class="tags-container" id="tags-container"></div>
-      <button class="clear-all-tags-btn" id="clear-all-tags-btn" type="button">Clear All</button>
+    <!-- Hidden Filter inputs to maintain JS compatibility without cluttering UI -->
+    <div style="display: none;" id="hidden-filter-controls">
+      <select id="category-select"><option value="all">All</option></select>
+      <select id="language-select"><option value="">All</option></select>
+      <select id="genre-select"><option value="">All</option></select>
+      <select id="quality-select"><option value="">All</option></select>
+      <select id="year-select"><option value="">All</option></select>
+      <select id="sort-select"><option value="newest">Newest</option></select>
+      <button id="reset-filters-btn" type="button"></button>
+      <div id="active-tags-row" hidden>
+        <div id="tags-container"></div>
+        <button id="clear-all-tags-btn" type="button"></button>
+      </div>
     </div>
   </div>
 

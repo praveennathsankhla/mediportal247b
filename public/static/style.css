@@ -3259,3 +3259,257 @@ details[open] summary.faq-question::after {
   margin: 0;
 }
 
+
+/* ==========================================================================
+   TELEGRAM BUTTONS, POPUP MODAL & CLEAN SEARCH SECTION
+   ========================================================================== */
+
+/* Topbar Header Telegram Button (Right of Logo / Name) */
+.tg-header-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: linear-gradient(135deg, #0088cc 0%, #00a8e8 100%);
+  color: #ffffff !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  margin-left: 6px;
+  box-shadow: 0 0 14px rgba(0, 136, 204, 0.4);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tg-header-btn:hover {
+  background: linear-gradient(135deg, #0099e6 0%, #00bfff 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 0 20px rgba(0, 136, 204, 0.65);
+  color: #ffffff !important;
+}
+
+/* Mobile Drawer Telegram Button */
+.drawer-tg-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #0088cc 0%, #00a8e8 100%);
+  color: #fff !important;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+}
+
+/* Telegram Popup Modal */
+.tg-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 7, 14, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.tg-popup-overlay.tg-popup-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tg-popup-content {
+  background: #0d1527;
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 136, 204, 0.2);
+  max-width: 420px;
+  width: 100%;
+  padding: 32px 28px 24px;
+  text-align: center;
+  position: relative;
+  transform: scale(0.92);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tg-popup-overlay.tg-popup-visible .tg-popup-content {
+  transform: scale(1);
+}
+
+.tg-popup-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  transition: color var(--transition-fast);
+}
+
+.tg-popup-close:hover {
+  color: #fff;
+}
+
+.tg-popup-icon {
+  margin-bottom: 16px;
+  display: inline-flex;
+  padding: 12px;
+  border-radius: 50%;
+  background: rgba(0, 136, 204, 0.12);
+  border: 1px solid rgba(0, 136, 204, 0.3);
+}
+
+.tg-popup-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.tg-popup-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 22px;
+}
+
+.tg-popup-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: linear-gradient(135deg, #0088cc 0%, #00b4d8 100%);
+  color: #ffffff !important;
+  font-size: 0.96rem;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(0, 136, 204, 0.45);
+  transition: all var(--transition-fast);
+  margin-bottom: 12px;
+}
+
+.tg-popup-btn:hover {
+  background: linear-gradient(135deg, #0099e6 0%, #00c2ea 100%);
+  box-shadow: 0 6px 24px rgba(0, 136, 204, 0.65);
+  transform: translateY(-1px);
+}
+
+.tg-popup-dismiss {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 12px;
+  transition: color var(--transition-fast);
+}
+
+.tg-popup-dismiss:hover {
+  color: #cbd5e1;
+}
+
+/* Home Clean Search Bar (VegaMovies / BollyFlix Hero Style) */
+.home-search-section {
+  max-width: 900px;
+  margin: 10px auto 26px auto;
+  padding: 0 16px;
+  width: 100%;
+}
+
+.home-search-wrap {
+  width: 100%;
+}
+
+.home-search-form {
+  display: flex;
+  align-items: center;
+  background: #0d1527;
+  border: 2px solid rgba(0, 229, 255, 0.35);
+  border-radius: var(--radius-md);
+  padding: 5px 8px 5px 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 229, 255, 0.15);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.home-search-form:focus-within {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 28px rgba(0, 229, 255, 0.3);
+}
+
+.home-search-icon {
+  font-size: 1.15rem;
+  margin-right: 10px;
+  color: var(--text-dim);
+  flex-shrink: 0;
+}
+
+.home-search-form input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1.05rem;
+  padding: 8px 4px;
+}
+
+.home-search-form input::placeholder {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.home-search-submit {
+  background: linear-gradient(135deg, #00e5ff 0%, #00b4d8 100%);
+  color: #070a13;
+  font-weight: 800;
+  font-size: 0.95rem;
+  border: none;
+  padding: 9px 24px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.home-search-submit:hover {
+  background: #00f0ff;
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .tg-header-btn span {
+    display: none;
+  }
+  .tg-header-btn {
+    padding: 6px 8px;
+    margin-left: 2px;
+  }
+  .home-search-submit {
+    padding: 8px 14px;
+    font-size: 0.88rem;
+  }
+  .home-search-form input::placeholder {
+    font-size: 0.82rem;
+  }
+}

@@ -10,22 +10,22 @@
   <meta name="title" content="How to Download Movies &amp; Series Tutorial | MediPortal247">
   <meta name="description" content="Step-by-step guide on how to download movies from MediPortal247. Learn about Google Drive links, 1080p/4K tiers, IDM setup, and dual-audio subtitle playback.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <link rel="canonical" href="http://localhost/how-to-download">
+  <link rel="canonical" href="https://mediportal247.online/how-to-download">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="http://localhost/how-to-download">
+  <meta property="og:url" content="https://mediportal247.online/how-to-download">
   <meta property="og:title" content="How to Download Movies &amp; Series Tutorial | MediPortal247">
   <meta property="og:description" content="Step-by-step guide on how to download movies from MediPortal247. Learn about Google Drive links, 1080p/4K tiers, IDM setup, and dual-audio subtitle playback.">
-  <meta property="og:image" content="http://localhost/static/og-banner.png">
+  <meta property="og:image" content="https://mediportal247.online/static/og-banner.png">
   <meta property="og:site_name" content="MediPortal247">
 
   <!-- Twitter / X -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="http://localhost/how-to-download">
+  <meta property="twitter:url" content="https://mediportal247.online/how-to-download">
   <meta property="twitter:title" content="How to Download Movies &amp; Series Tutorial | MediPortal247">
   <meta property="twitter:description" content="Step-by-step guide on how to download movies from MediPortal247. Learn about Google Drive links, 1080p/4K tiers, IDM setup, and dual-audio subtitle playback.">
-  <meta property="twitter:image" content="http://localhost/static/og-banner.png">
+  <meta property="twitter:image" content="https://mediportal247.online/static/og-banner.png">
 
   <!-- JSON-LD Structured Data for Google SERP Rich Snippets -->
   
@@ -67,6 +67,12 @@
           <span class="brand-title">MEDIPORTAL<span class="brand-accent">247</span></span>
           <span class="brand-sub">Movie &amp; Series Download Hub</span>
         </div>
+      </a>
+
+      <!-- Telegram Header Button (Right side of Logo/Name) -->
+      <a class="tg-header-btn" href="https://t.me/Mediportal247" target="_blank" rel="noopener noreferrer" title="Join our Official Telegram Channel">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+        <span>Join Telegram</span>
       </a>
 
       <!-- Desktop Navigation Bar -->
@@ -159,6 +165,23 @@
     </div>
   </header>
 
+  <!-- Telegram Join Popup Modal -->
+  <div class="tg-popup-overlay" id="tg-popup-overlay" hidden>
+    <div class="tg-popup-content">
+      <button class="tg-popup-close" id="tg-popup-close" type="button" aria-label="Close Telegram pop-up">✕</button>
+      <div class="tg-popup-icon">
+        <svg viewBox="0 0 24 24" width="48" height="48" fill="#0088cc"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+      </div>
+      <h3 class="tg-popup-title">Join Our Official Telegram!</h3>
+      <p class="tg-popup-desc">Get instant updates for new movies, web series, 4K releases, and fast direct download links.</p>
+      <a class="tg-popup-btn" href="https://t.me/Mediportal247" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+        <span>Join @Mediportal247</span>
+      </a>
+      <button class="tg-popup-dismiss" id="tg-popup-dismiss" type="button">Maybe Later</button>
+    </div>
+  </div>
+
   <!-- Mobile Drawer Menu -->
   <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
     <div class="drawer-header">
@@ -168,6 +191,12 @@
       <button class="drawer-close" id="drawer-close" type="button" aria-label="Close menu">✕</button>
     </div>
     <div class="drawer-content">
+      <div class="drawer-section">
+        <a class="drawer-tg-btn" href="https://t.me/Mediportal247" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+          <span>Join Official Telegram Channel</span>
+        </a>
+      </div>
       <div class="drawer-section">
         <p class="drawer-heading">ESSENTIAL PAGES</p>
         <div class="drawer-nav">
@@ -458,8 +487,9 @@
       </div>
 
       <div class="footer-col">
-        <h3 class="footer-heading">Pages &amp; Legal</h3>
+        <h3 class="footer-heading">Pages &amp; Community</h3>
         <ul class="footer-links">
+          <li><a href="https://t.me/Mediportal247" target="_blank" rel="noopener noreferrer" style="color: #00e5ff; font-weight: 700;">✈️ Join Telegram Channel</a></li>
           <li><a href="/how-to-download">📖 How to Download</a></li>
           <li><a href="/request-movies">📩 Request Movies</a></li>
           <li><a href="/serp-preview">🔍 SERP Preview &amp; SEO</a></li>

@@ -22,6 +22,16 @@ DATA_FILE = DATA_DIR / "movies.json"
 THUMBNAILS_DIR = DATA_DIR / "thumbnails"
 
 app = Flask(__name__)
+
+SITE_DOMAIN = os.environ.get("SITE_DOMAIN", "https://mediportal247.online").rstrip("/")
+
+def get_base_url():
+    """
+    Returns the production site domain https://mediportal247.online for canonical/sitemaps.
+    """
+    return SITE_DOMAIN
+
+
 _catalog_lock = threading.Lock()
 _catalog_signature = None
 _catalog_movies = []
@@ -484,9 +494,12 @@ def build_seo_meta(
     page_num=1,
     **kwargs,
 ):
-    host_url = request.host_url.rstrip("/")
+    host_url = get_base_url()
     if not canonical_url:
-        canonical_url = request.base_url
+        try:
+            canonical_url = f"{host_url}{request.path}"
+        except Exception:
+            canonical_url = host_url
 
     default_image = f"{host_url}/static/og-banner.png"
 
@@ -1008,11 +1021,12 @@ def serp_preview_page():
 
 @app.get("/robots.txt")
 def robots_txt():
+    base_url = get_base_url()
     content = (
         "User-agent: *\n"
         "Allow: /\n"
         "Disallow: /api/\n"
-        f"Sitemap: {request.host_url.rstrip('/')}/sitemap.xml\n"
+        f"Sitemap: {base_url}/sitemap.xml\n"
     )
     return content, 200, {"Content-Type": "text/plain; charset=utf-8"}
 
@@ -1021,7 +1035,7 @@ def robots_txt():
 def sitemap_xml():
     """Generates a standard sitemap index pointing to sub-sitemaps (categories, pages, and movies)"""
     get_catalog()
-    host_url = request.host_url.rstrip("/")
+    host_url = get_base_url()
     total_movies = len(_catalog_movies)
     chunk_size = 5000
     total_parts = max(1, (total_movies + chunk_size - 1) // chunk_size)
@@ -1040,7 +1054,7 @@ def sitemap_xml():
 
 @app.get("/sitemap-pages.xml")
 def sitemap_pages_xml():
-    host_url = request.host_url.rstrip("/")
+    host_url = get_base_url()
     xml_lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
@@ -1067,7 +1081,7 @@ def sitemap_pages_xml():
 @app.get("/sitemap-categories.xml")
 def sitemap_categories_xml():
     get_catalog()
-    host_url = request.host_url.rstrip("/")
+    host_url = get_base_url()
     xml_lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
@@ -1102,7 +1116,7 @@ def sitemap_categories_xml():
 @app.get("/sitemap-movies-<int:part_num>.xml")
 def sitemap_movies_xml(part_num):
     get_catalog()
-    host_url = request.host_url.rstrip("/")
+    host_url = get_base_url()
     chunk_size = 5000
     start_idx = (part_num - 1) * chunk_size
     end_idx = start_idx + chunk_size
